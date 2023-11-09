@@ -5,13 +5,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'option_model.dart';
 export 'option_model.dart';
 
 class OptionWidget extends StatefulWidget {
-  const OptionWidget({super.key});
+  const OptionWidget({Key? key}) : super(key: key);
 
   @override
   _OptionWidgetState createState() => _OptionWidgetState();
@@ -51,11 +56,11 @@ class _OptionWidgetState extends State<OptionWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.00, 1.00),
+      alignment: AlignmentDirectional(0.00, 1.00),
       child: Material(
         color: Colors.transparent,
         elevation: 5.0,
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
@@ -67,7 +72,7 @@ class _OptionWidgetState extends State<OptionWidget> {
           width: double.infinity,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(16.0),
@@ -75,7 +80,7 @@ class _OptionWidgetState extends State<OptionWidget> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
             child: StreamBuilder<List<GroceryItemRecord>>(
               stream: queryGroceryItemRecord(
                 singleRecord: true,
@@ -106,7 +111,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: Container(
                         width: 50.0,
                         height: 4.0,
@@ -118,7 +123,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -150,7 +155,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 12.0, 16.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController1,
@@ -199,7 +204,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                               BorderRadius.circular(8.0),
                                         ),
                                         contentPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 16.0, 0.0, 24.0, 0.0),
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -209,7 +214,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 12.0, 16.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController2,
@@ -258,7 +263,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                               BorderRadius.circular(8.0),
                                         ),
                                         contentPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 16.0, 0.0, 24.0, 0.0),
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -269,7 +274,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 12.0, 16.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController3,
@@ -318,7 +323,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                               BorderRadius.circular(8.0),
                                         ),
                                         contentPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 16.0, 0.0, 24.0, 0.0),
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -331,11 +336,11 @@ class _OptionWidgetState extends State<OptionWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 12.0, 16.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        final datePickedDate =
+                                        final _datePickedDate =
                                             await showDatePicker(
                                           context: context,
                                           initialDate: getCurrentTimestamp,
@@ -343,12 +348,12 @@ class _OptionWidgetState extends State<OptionWidget> {
                                           lastDate: getCurrentTimestamp,
                                         );
 
-                                        if (datePickedDate != null) {
+                                        if (_datePickedDate != null) {
                                           safeSetState(() {
                                             _model.datePicked = DateTime(
-                                              datePickedDate.year,
-                                              datePickedDate.month,
-                                              datePickedDate.day,
+                                              _datePickedDate.year,
+                                              _datePickedDate.month,
+                                              _datePickedDate.day,
                                             );
                                           });
                                         }
@@ -358,10 +363,10 @@ class _OptionWidgetState extends State<OptionWidget> {
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 46.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .secondary,
@@ -374,7 +379,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                                       .success,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: const BorderSide(
+                                        borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -457,7 +462,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                               width: 70.0,
                               height: 70.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFF2A2929),
+                                color: Color(0xFF2A2929),
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: Image.network(
@@ -472,7 +477,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                 ),
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.00, 0.00),
                                 child: FaIcon(
                                   FontAwesomeIcons.images,
                                   color: FlutterFlowTheme.of(context)
@@ -487,7 +492,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           final firestoreBatch =
@@ -522,9 +527,9 @@ class _OptionWidgetState extends State<OptionWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 46.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
@@ -533,7 +538,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                     color: FlutterFlowTheme.of(context).success,
                                   ),
                           elevation: 3.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

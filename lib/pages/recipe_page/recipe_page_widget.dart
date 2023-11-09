@@ -4,14 +4,16 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'recipe_page_model.dart';
 export 'recipe_page_model.dart';
 
 class RecipePageWidget extends StatefulWidget {
   const RecipePageWidget({
-    super.key,
+    Key? key,
     this.aiImage,
-  });
+  }) : super(key: key);
 
   final String? aiImage;
 
@@ -56,7 +58,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -78,7 +80,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                         'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxmb29kfGVufDB8fHx8MTY5ODA5Mzc3N3ww&ixlib=rb-4.0.3&q=80&w=1080',
                       ).image,
                     ),
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(24.0),
                       bottomRight: Radius.circular(24.0),
                       topLeft: Radius.circular(0.0),
@@ -90,7 +92,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 60.0, 24.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -103,7 +105,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                               onTap: () async {
                                 context.safePop();
                               },
-                              child: const Icon(
+                              child: Icon(
                                 Icons.arrow_back_ios_rounded,
                                 color: Color(0xB8D9D9D9),
                                 size: 26.0,
@@ -113,15 +115,15 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-1.00, 1.00),
+                        alignment: AlignmentDirectional(-1.00, 1.00),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -142,25 +144,25 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 12.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () {
                                         print('Button pressed ...');
                                       },
                                       text: 'ProductTime',
-                                      icon: const Icon(
+                                      icon: Icon(
                                         Icons.access_time_rounded,
                                         size: 18.0,
                                       ),
                                       options: FFButtonOptions(
                                         height: 30.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: const Color(0x9AED6E3A),
+                                        color: Color(0x9AED6E3A),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -179,25 +181,25 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 12.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () {
                                         print('Button pressed ...');
                                       },
                                       text: 'ProductPrice',
-                                      icon: const FaIcon(
+                                      icon: FaIcon(
                                         FontAwesomeIcons.dollarSign,
                                         size: 18.0,
                                       ),
                                       options: FFButtonOptions(
                                         height: 30.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: const Color(0x9AED6E3A),
+                                        color: Color(0x9AED6E3A),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -226,14 +228,14 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(12.0, 24.0, 12.0, 12.0),
+                      EdgeInsetsDirectional.fromSTEB(12.0, 24.0, 12.0, 12.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                         child: Text(
                           'Instructions:',
                           style:
@@ -251,17 +253,17 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 12.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 24.0, 12.0),
                                 child: Text(
-                                  '1. Hello World\n1. Hello World\n1. Hello World\n1. Hello World\n1. Hello World\n1. Hello World',
+                                  '1 cup of all-purpose flour\n2 tablespoons of sugar\n2 teaspoons of baking powder\n½ teaspoon of salt\n1 cup of milk\n2 tablespoons of unsalted butter, melted, or vegetable oil\n1 large egg\n1 tablespoon of vegetable oil for cooking\nAssorted toppings, such as butter, maple syrup, confectioners’ sugar, honey, jams, preserves, sweetened whipped cream, or chocolate syrup',
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
@@ -275,14 +277,14 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(12.0, 24.0, 12.0, 12.0),
+                      EdgeInsetsDirectional.fromSTEB(12.0, 24.0, 12.0, 12.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                         child: Text(
                           'Ingredients:',
                           style:
@@ -300,17 +302,17 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 12.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 24.0, 12.0),
                                 child: Text(
-                                  '1. Hello World\n1. Hello World\n1. Hello World\n1. Hello World\n1. Hello World\n1. Hello World',
+                                  'In a large bowl, whisk together the flour, sugar, baking powder, and salt.\n\nIn a small bowl, whisk together the milk, butter or oil, and egg.\n\nMake a well in the center of the flour mixture and pour in the milk mixture. Stir gently until just combined. Do not overmix. The batter should be slightly lumpy.\n\nLet the batter rest for 10 minutes.\n\nHeat a large skillet or griddle over medium-high heat and lightly grease with oil.\n\nDrop about ¼ cup of batter onto the skillet for each pancake. Cook until bubbles form on the surface, about 2 to 3 minutes. Flip and cook until golden on the other side, about 1 to 2 minutes more.\n\nTransfer the pancakes to a baking sheet and keep warm in a 200°F oven until ready to serve.\n\nRepeat with the remaining batter, adding more oil as needed.\n\nServe the pancakes with your favorite toppings and enjoy!',
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),

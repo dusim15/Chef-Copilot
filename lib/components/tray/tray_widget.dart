@@ -4,13 +4,17 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'tray_model.dart';
 export 'tray_model.dart';
 
 class TrayWidget extends StatefulWidget {
-  const TrayWidget({super.key});
+  const TrayWidget({Key? key}) : super(key: key);
 
   @override
   _TrayWidgetState createState() => _TrayWidgetState();
@@ -27,8 +31,8 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
           curve: Curves.easeInOut,
           delay: 2.ms,
           duration: 1100.ms,
-          begin: const Offset(0.0, 160.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 160.0),
+          end: Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -46,8 +50,8 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
           curve: Curves.easeInOut,
           delay: 2.ms,
           duration: 900.ms,
-          begin: const Offset(0.0, 110.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 110.0),
+          end: Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -65,8 +69,8 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
           curve: Curves.easeInOut,
           delay: 2.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -101,9 +105,9 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(1.00, 0.00),
+      alignment: AlignmentDirectional(1.00, 0.00),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
@@ -118,7 +122,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                 context.pushNamed(
                   'SearchImage',
                   extra: <String, dynamic>{
-                    kTransitionInfoKey: const TransitionInfo(
+                    kTransitionInfoKey: TransitionInfo(
                       hasTransition: true,
                       transitionType: PageTransitionType.fade,
                       duration: Duration(milliseconds: 200),
@@ -133,7 +137,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                     child: Text(
                       'Ask Copilot',
                       style: FlutterFlowTheme.of(context).bodyMedium,
@@ -153,7 +157,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                       context.pushNamed(
                         'CreateRecipe',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: const TransitionInfo(
+                          kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
                             duration: Duration(milliseconds: 200),
@@ -176,7 +180,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                 context.pushNamed(
                   'CreateRecipe',
                   extra: <String, dynamic>{
-                    kTransitionInfoKey: const TransitionInfo(
+                    kTransitionInfoKey: TransitionInfo(
                       hasTransition: true,
                       transitionType: PageTransitionType.fade,
                       duration: Duration(milliseconds: 200),
@@ -191,7 +195,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                     child: Text(
                       'Create Recipe',
                       style: FlutterFlowTheme.of(context).bodyMedium,
@@ -212,7 +216,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                       context.pushNamed(
                         'CreateRecipe',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: const TransitionInfo(
+                          kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
                             duration: Duration(milliseconds: 200),
@@ -234,12 +238,12 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
               onTap: () async {
                 await showModalBottomSheet(
                   isScrollControlled: true,
-                  backgroundColor: const Color(0x9A000000),
+                  backgroundColor: Color(0x9A000000),
                   context: context,
                   builder: (context) {
                     return Padding(
                       padding: MediaQuery.viewInsetsOf(context),
-                      child: const OptionWidget(),
+                      child: OptionWidget(),
                     );
                   },
                 ).then((value) => safeSetState(() {}));
@@ -251,7 +255,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                     child: Text(
                       'Add Product',
                       style: FlutterFlowTheme.of(context).bodyMedium,
@@ -271,12 +275,12 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                     onPressed: () async {
                       await showModalBottomSheet(
                         isScrollControlled: true,
-                        backgroundColor: const Color(0x9A000000),
+                        backgroundColor: Color(0x9A000000),
                         context: context,
                         builder: (context) {
                           return Padding(
                             padding: MediaQuery.viewInsetsOf(context),
-                            child: const OptionWidget(),
+                            child: OptionWidget(),
                           );
                         },
                       ).then((value) => safeSetState(() {}));
@@ -288,9 +292,9 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
               ),
             ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation3']!),
           ]
-              .divide(const SizedBox(height: 20.0))
-              .addToStart(const SizedBox(height: 20.0))
-              .addToEnd(const SizedBox(height: 100.0)),
+              .divide(SizedBox(height: 20.0))
+              .addToStart(SizedBox(height: 20.0))
+              .addToEnd(SizedBox(height: 100.0)),
         ),
       ),
     );

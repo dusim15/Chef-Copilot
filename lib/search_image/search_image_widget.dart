@@ -5,14 +5,16 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'search_image_model.dart';
 export 'search_image_model.dart';
 
 class SearchImageWidget extends StatefulWidget {
   const SearchImageWidget({
-    super.key,
+    Key? key,
     this.backgroundImage,
-  });
+  }) : super(key: key);
 
   final String? backgroundImage;
 
@@ -88,7 +90,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -99,17 +101,17 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.00, -1.00),
+                alignment: AlignmentDirectional(0.00, -1.00),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.00, -1.00),
+                          alignment: AlignmentDirectional(0.00, -1.00),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 12.0, 12.0, 12.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -179,7 +181,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                                   visible: widget.backgroundImage == null ||
                                       widget.backgroundImage == '',
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -191,7 +193,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Text(
                                             'Upload an Image',
@@ -212,7 +214,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 12.0, 12.0, 0.0),
                           child: Container(
                             decoration: BoxDecoration(
@@ -258,7 +260,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
-                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 24.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context).bodyMedium,
@@ -269,9 +271,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(-1.00, 0.00),
+                          alignment: AlignmentDirectional(-1.00, 0.00),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 24.0, 0.0, 0.0),
                             child: Text(
                               'Context',
@@ -280,7 +282,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 12.0, 12.0, 12.0),
                           child: Container(
                             decoration: BoxDecoration(
@@ -325,7 +327,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
-                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 24.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context).bodyMedium,
@@ -336,9 +338,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(-1.00, 0.00),
+                          alignment: AlignmentDirectional(-1.00, 0.00),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 12.0, 0.0, 0.0),
                             child: Text(
                               'Copilot\'s Response',
@@ -347,9 +349,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.00, -1.00),
+                          alignment: AlignmentDirectional(0.00, -1.00),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 12.0, 12.0, 12.0),
                             child: Container(
                               decoration: BoxDecoration(
@@ -364,9 +366,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(-1.00, -1.00),
+                                alignment: AlignmentDirectional(-1.00, -1.00),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 12.0, 12.0, 12.0),
                                   child: Text(
                                     _model.response,
@@ -385,19 +387,19 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.00, 1.00),
+                alignment: AlignmentDirectional(0.00, 1.00),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 32.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 32.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      var shouldSetState = false;
+                      var _shouldSetState = false;
                       setState(() {
                         _model.imageURL = widget.backgroundImage != null &&
                                 widget.backgroundImage != ''
                             ? widget.backgroundImage!
                             : _model.imageURL;
                       });
-                      if (_model.imageURL == '') {
+                      if (_model.imageURL == null || _model.imageURL == '') {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
@@ -407,11 +409,11 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                                 fontSize: 14.0,
                               ),
                             ),
-                            duration: const Duration(milliseconds: 4000),
-                            backgroundColor: const Color(0xFFE90000),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor: Color(0xFFE90000),
                           ),
                         );
-                        if (shouldSetState) setState(() {});
+                        if (_shouldSetState) setState(() {});
                         return;
                       } else {
                         _model.openAPI =
@@ -419,7 +421,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                           query: _model.textController2.text,
                           imageUrl: _model.imageURL,
                         );
-                        shouldSetState = true;
+                        _shouldSetState = true;
                         if ((_model.openAPI?.succeeded ?? true)) {
                           setState(() {
                             _model.response = (_model.openAPI?.bodyText ?? '');
@@ -435,27 +437,27 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                                   fontSize: 14.0,
                                 ),
                               ),
-                              duration: const Duration(milliseconds: 4000),
-                              backgroundColor: const Color(0xFFE90000),
+                              duration: Duration(milliseconds: 4000),
+                              backgroundColor: Color(0xFFE90000),
                             ),
                           );
-                          if (shouldSetState) setState(() {});
+                          if (_shouldSetState) setState(() {});
                           return;
                         }
 
-                        if (shouldSetState) setState(() {});
+                        if (_shouldSetState) setState(() {});
                         return;
                       }
 
-                      if (shouldSetState) setState(() {});
+                      if (_shouldSetState) setState(() {});
                     },
                     text: 'Ask about Product',
                     options: FFButtonOptions(
                       height: 40.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -463,7 +465,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                                 color: Colors.white,
                               ),
                       elevation: 3.0,
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
                       ),

@@ -8,11 +8,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'create_recipe_model.dart';
 export 'create_recipe_model.dart';
 
 class CreateRecipeWidget extends StatefulWidget {
-  const CreateRecipeWidget({super.key});
+  const CreateRecipeWidget({Key? key}) : super(key: key);
 
   @override
   _CreateRecipeWidgetState createState() => _CreateRecipeWidgetState();
@@ -66,7 +68,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
         endDrawer: Drawer(
           elevation: 16.0,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(12.0, 60.0, 12.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(12.0, 60.0, 12.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -77,7 +79,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                 if (Theme.of(context).brightness == Brightness.dark)
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -106,7 +108,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                 if (Theme.of(context).brightness == Brightness.light)
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -139,19 +141,19 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
         body: SafeArea(
           top: true,
           child: Container(
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: Stack(
               children: [
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(12.0, 60.0, 12.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(12.0, 60.0, 12.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 12.0, 24.0, 0.0),
                           child: Text(
                             'Find New Recipies',
@@ -166,7 +168,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 4.0, 24.0, 0.0),
                           child: Text(
                             'Provide a list of ingredients and we\'ll tell you what you can wake with them!',
@@ -178,7 +180,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 24.0, 24.0, 0.0),
                               child: Text(
                                 'Enter the ingredients you have on hand',
@@ -186,7 +188,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: TextFormField(
                                 controller: _model.textController1,
@@ -230,7 +232,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
+                                      EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -245,7 +247,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 24.0, 24.0, 0.0),
                               child: Text(
                                 'Enter the condiments, seasoning, and sauces you have on hand.',
@@ -253,7 +255,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: TextFormField(
                                 controller: _model.textController2,
@@ -298,7 +300,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
+                                      EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -313,7 +315,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 24.0, 24.0, 0.0),
                               child: Text(
                                 'Available leftovers (Optional)',
@@ -321,7 +323,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: TextFormField(
                                 controller: _model.textController3,
@@ -366,7 +368,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
+                                      EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -377,7 +379,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 24.0, 24.0, 0.0),
                           child: Text(
                             'Type of Meal',
@@ -385,14 +387,14 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 12.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 7.0),
                                 child: Text(
                                   'Please select what time of day you want the meal',
@@ -406,7 +408,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 ),
                               ),
                               FlutterFlowChoiceChips(
-                                options: const [
+                                options: [
                                   ChipData('Breakfast', Icons.sunny),
                                   ChipData('Brunch', FontAwesomeIcons.cloudSun),
                                   ChipData('Lunch', Icons.cloud),
@@ -463,7 +465,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 12.0, 24.0, 0.0),
                           child: Text(
                             'Available Time',
@@ -471,14 +473,14 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 12.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 7.0),
                                 child: Text(
                                   'Please select how much  time you have to make this meal',
@@ -492,7 +494,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 ),
                               ),
                               FlutterFlowChoiceChips(
-                                options: const [
+                                options: [
                                   ChipData('5 min'),
                                   ChipData('15 min'),
                                   ChipData('30 min'),
@@ -551,18 +553,18 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.00, 0.00),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 12.0, 24.0, 24.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                var shouldSetState = false;
+                                var _shouldSetState = false;
 
                                 context.pushNamed(
                                   'recipePage',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: const TransitionInfo(
+                                    kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 200),
@@ -574,25 +576,25 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     await OpenAIAPIGroup.createImageCall.call(
                                   query: _model.textController1.text,
                                 );
-                                shouldSetState = true;
+                                _shouldSetState = true;
                                 if ((_model.apiResultlfu?.succeeded ?? true)) {
-                                  if (shouldSetState) setState(() {});
+                                  if (_shouldSetState) setState(() {});
                                   return;
                                 }
 
-                                if (shouldSetState) setState(() {});
+                                if (_shouldSetState) setState(() {});
                                 return;
-                                if (shouldSetState) setState(() {});
+                                if (_shouldSetState) setState(() {});
                               },
                               text: 'Generate Recipies',
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 50.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: const Color(0xB46C9E4F),
+                                color: Color(0xB46C9E4F),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -600,7 +602,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                       color: Colors.white,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -615,7 +617,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                 ),
                 Container(
                   height: 60.0,
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(0.0),
                     child: BackdropFilter(
@@ -627,7 +629,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 12.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,

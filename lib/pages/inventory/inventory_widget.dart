@@ -4,14 +4,17 @@ import '/components/option/option_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'inventory_model.dart';
 export 'inventory_model.dart';
 
 class InventoryWidget extends StatefulWidget {
-  const InventoryWidget({super.key});
+  const InventoryWidget({Key? key}) : super(key: key);
 
   @override
   _InventoryWidgetState createState() => _InventoryWidgetState();
@@ -57,7 +60,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
           onPressed: () async {
             await showModalBottomSheet(
               isScrollControlled: true,
-              backgroundColor: const Color(0x9A000000),
+              backgroundColor: Color(0x9A000000),
               context: context,
               builder: (context) {
                 return GestureDetector(
@@ -66,7 +69,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                       : FocusScope.of(context).unfocus(),
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
-                    child: const OptionWidget(),
+                    child: OptionWidget(),
                   ),
                 );
               },
@@ -89,7 +92,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
               child: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
                 borderRadius: 30.0,
@@ -104,7 +107,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                   context.pushNamed(
                     'CreateRecipe',
                     extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
+                      kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.fade,
                         duration: Duration(milliseconds: 200),
@@ -123,7 +126,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -135,7 +138,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: StreamBuilder<List<GroceryItemRecord>>(
                   stream: queryGroceryItemRecord(
                     queryBuilder: (groceryItemRecord) =>
@@ -149,7 +152,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               50.0, 50.0, 50.0, 50.0),
                           child: SizedBox(
                             width: 50.0,
@@ -175,14 +178,14 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                         final listViewGroceryItemRecord =
                             listViewGroceryItemRecordList[listViewIndex];
                         return Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 8.0),
                           child: Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: const [
+                              boxShadow: [
                                 BoxShadow(
                                   blurRadius: 3.0,
                                   color: Color(0x411D2429),
@@ -192,13 +195,13 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 1.0, 1.0, 1.0),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(6.0),
@@ -212,7 +215,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           8.0, 8.0, 4.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -228,7 +231,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 4.0, 8.0, 0.0),
                                             child: AutoSizeText(
                                               'quantity: 1',
@@ -248,7 +251,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                                         MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
-                                      const Padding(
+                                      Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Icon(
@@ -258,7 +261,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 12.0, 4.0, 0.0),
                                         child: Text(
                                           'Fruit',

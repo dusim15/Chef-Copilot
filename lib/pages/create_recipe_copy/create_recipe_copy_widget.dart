@@ -6,11 +6,13 @@ import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'create_recipe_copy_model.dart';
 export 'create_recipe_copy_model.dart';
 
 class CreateRecipeCopyWidget extends StatefulWidget {
-  const CreateRecipeCopyWidget({super.key});
+  const CreateRecipeCopyWidget({Key? key}) : super(key: key);
 
   @override
   _CreateRecipeCopyWidgetState createState() => _CreateRecipeCopyWidgetState();
@@ -64,7 +66,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
         endDrawer: Drawer(
           elevation: 16.0,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(12.0, 60.0, 12.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(12.0, 60.0, 12.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -75,7 +77,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                 if (Theme.of(context).brightness == Brightness.dark)
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -104,7 +106,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                 if (Theme.of(context).brightness == Brightness.light)
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -141,7 +143,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.00, 0.00),
                   child: Wrap(
                     spacing: 0.0,
                     runSpacing: 0.0,
@@ -153,12 +155,12 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                     clipBehavior: Clip.none,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(-1.00, -1.00),
+                        alignment: AlignmentDirectional(-1.00, -1.00),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.4,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: SingleChildScrollView(
                               child: Column(
@@ -166,7 +168,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -202,7 +204,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                     color: FlutterFlowTheme.of(context).accent4,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 12.0, 24.0, 0.0),
                                     child: Text(
                                       'Find New Recipies',
@@ -217,7 +219,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 4.0, 24.0, 0.0),
                                     child: Text(
                                       'Provide a list of ingredients and we\'ll tell you what you can wake with them!',
@@ -231,7 +233,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 24.0, 24.0, 0.0),
                                         child: Text(
                                           'Enter the ingredients you have on hand',
@@ -240,7 +242,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController1,
@@ -297,7 +299,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                   BorderRadius.circular(8.0),
                                             ),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -315,7 +317,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 24.0, 24.0, 0.0),
                                         child: Text(
                                           'Enter the condiments, seasoning, and sauces you have on hand.',
@@ -324,7 +326,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController2,
@@ -382,7 +384,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                   BorderRadius.circular(8.0),
                                             ),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -400,7 +402,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 24.0, 24.0, 0.0),
                                         child: Text(
                                           'Available leftovers (Optional)',
@@ -409,7 +411,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController3,
@@ -467,7 +469,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                   BorderRadius.circular(8.0),
                                             ),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -480,7 +482,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                     ],
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 24.0, 24.0, 0.0),
                                     child: Text(
                                       'Type of Meal',
@@ -489,7 +491,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 12.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -498,7 +500,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 7.0),
                                           child: Text(
                                             'Please select what time of day you want the meal',
@@ -513,7 +515,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                           ),
                                         ),
                                         FlutterFlowChoiceChips(
-                                          options: const [
+                                          options: [
                                             ChipData('Breakfast', Icons.sunny),
                                             ChipData('Brunch',
                                                 FontAwesomeIcons.cloudSun),
@@ -586,7 +588,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 12.0, 24.0, 0.0),
                                     child: Text(
                                       'Available Time',
@@ -595,7 +597,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 12.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -604,7 +606,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 7.0),
                                           child: Text(
                                             'Please select how much  time you have to make this meal',
@@ -619,7 +621,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                           ),
                                         ),
                                         FlutterFlowChoiceChips(
-                                          options: const [
+                                          options: [
                                             ChipData('5 min'),
                                             ChipData('15 min'),
                                             ChipData('30 min'),
@@ -692,9 +694,9 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 12.0, 24.0, 24.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
@@ -702,7 +704,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                             'recipePage',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  const TransitionInfo(
+                                                  TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -717,12 +719,12 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                           width: double.infinity,
                                           height: 50.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
-                                          color: const Color(0xB46C9E4F),
+                                          color: Color(0xB46C9E4F),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -731,7 +733,7 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                     color: Colors.white,
                                                   ),
                                           elevation: 3.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
