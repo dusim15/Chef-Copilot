@@ -140,6 +140,8 @@ class _LoginWidgetState extends State<LoginWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -165,7 +167,9 @@ class _LoginWidgetState extends State<LoginWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 72.0),
                     child: Text(
-                      'Chef Copilot',
+                      FFLocalizations.of(context).getText(
+                        'pi2fp0xe' /* Chef Copilot */,
+                      ),
                       style: FlutterFlowTheme.of(context).displaySmall,
                     ),
                   ),
@@ -233,10 +237,16 @@ class _LoginWidgetState extends State<LoginWidget>
                                       indicatorWeight: 3.0,
                                       tabs: [
                                         Tab(
-                                          text: 'Create Account',
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'kqlvn0vt' /* Create Account */,
+                                          ),
                                         ),
                                         Tab(
-                                          text: 'Log In',
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            '8ttpf53r' /* Log In */,
+                                          ),
                                         ),
                                       ],
                                       controller: _model.tabBarController,
@@ -274,7 +284,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       ),
                                                     ),
                                                   Text(
-                                                    'Create Account',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'kl41bult' /* Create Account */,
+                                                    ),
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -286,7 +299,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 24.0),
                                                     child: Text(
-                                                      'Let\'s get started by filling out the form below.',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'z3ekx0l8' /* Let's get started by filling o... */,
+                                                      ),
                                                       textAlign:
                                                           TextAlign.start,
                                                       style:
@@ -314,7 +331,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
-                                                          labelText: 'Email',
+                                                          labelText:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'uww47kva' /* Email */,
+                                                          ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -428,7 +450,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             .passwordVisibility1,
                                                         decoration:
                                                             InputDecoration(
-                                                          labelText: 'Password',
+                                                          labelText:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            '9p9aegbs' /* Password */,
+                                                          ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -563,7 +590,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         decoration:
                                                             InputDecoration(
                                                           labelText:
-                                                              'Confirm Password',
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'xt2q79rm' /* Confirm Password */,
+                                                          ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -730,7 +761,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               'HomePage',
                                                               context.mounted);
                                                         },
-                                                        text: 'Get Started',
+                                                        text:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '0zfk0v8x' /* Get Started */,
+                                                        ),
                                                         options:
                                                             FFButtonOptions(
                                                           width: 230.0,
@@ -794,7 +830,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       16.0,
                                                                       24.0),
                                                           child: Text(
-                                                            'Or sign up with',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'f9x272es' /* Or sign up with */,
+                                                            ),
                                                             textAlign: TextAlign
                                                                 .center,
                                                             style: FlutterFlowTheme
@@ -863,8 +903,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         context
                                                                             .mounted);
                                                                   },
-                                                                  text:
-                                                                      'Continue with Google',
+                                                                  text: FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'x7lvsg7m' /* Continue with Google */,
+                                                                  ),
                                                                   icon: FaIcon(
                                                                     FontAwesomeIcons
                                                                         .google,
@@ -944,8 +987,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                               'HomePage',
                                                                               context.mounted);
                                                                         },
-                                                                        text:
-                                                                            'Continue with Apple',
+                                                                        text: FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          'ywy6r8ja' /* Continue with Apple */,
+                                                                        ),
                                                                         icon:
                                                                             FaIcon(
                                                                           FontAwesomeIcons
@@ -1033,7 +1078,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       ),
                                                     ),
                                                   Text(
-                                                    'Welcome Back',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'p3jq1rth' /* Welcome Back */,
+                                                    ),
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1045,7 +1093,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 24.0),
                                                     child: Text(
-                                                      'Fill out the information below in order to access your account.',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '1bzpl5f5' /* Fill out the information below... */,
+                                                      ),
                                                       textAlign:
                                                           TextAlign.start,
                                                       style:
@@ -1073,7 +1125,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
-                                                          labelText: 'Email',
+                                                          labelText:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            '65ndiovm' /* Email */,
+                                                          ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -1180,7 +1237,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             .passwordVisibility2,
                                                         decoration:
                                                             InputDecoration(
-                                                          labelText: 'Password',
+                                                          labelText:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'x4uu6huf' /* Password */,
+                                                          ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -1323,7 +1385,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               'HomePage',
                                                               context.mounted);
                                                         },
-                                                        text: 'Sign In',
+                                                        text:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '6qvilc6k' /* Sign In */,
+                                                        ),
                                                         options:
                                                             FFButtonOptions(
                                                           width: 230.0,
@@ -1383,7 +1450,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   16.0,
                                                                   24.0),
                                                       child: Text(
-                                                        'Or sign in with',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'z5wonppu' /* Or sign in with */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.center,
                                                         style:
@@ -1442,8 +1513,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context
                                                                       .mounted);
                                                             },
-                                                            text:
-                                                                'Continue with Google',
+                                                            text: FFLocalizations
+                                                                    .of(context)
+                                                                .getText(
+                                                              'o8kjh2lz' /* Continue with Google */,
+                                                            ),
                                                             icon: FaIcon(
                                                               FontAwesomeIcons
                                                                   .google,
@@ -1529,8 +1603,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         context
                                                                             .mounted);
                                                                   },
-                                                                  text:
-                                                                      'Continue with Apple',
+                                                                  text: FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'bzh273nl' /* Continue with Apple */,
+                                                                  ),
                                                                   icon: FaIcon(
                                                                     FontAwesomeIcons
                                                                         .apple,
@@ -1617,7 +1694,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               context.mounted);
                                                         },
                                                         text:
-                                                            'Forgot Password?',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'kzsaoaen' /* Forgot Password? */,
+                                                        ),
                                                         options:
                                                             FFButtonOptions(
                                                           height: 44.0,

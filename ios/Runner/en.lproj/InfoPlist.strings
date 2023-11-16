@@ -1,0 +1,3 @@
+NSPhotoLibraryUsageDescription = "Allow access to library to set an image of product";
+PermissionGroupNotification = "Recieve notifications?";
+NSMicrophoneUsageDescription = "We need access to the microphone to answer your response.";

@@ -35,9 +35,14 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??=
-        TextEditingController(text: 'Does it still look good or its spoilt?');
+    _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController2?.text = FFLocalizations.of(context).getText(
+            'z0jvh04n' /* Does it still look good or its... */,
+          );
+        }));
   }
 
   @override
@@ -58,6 +63,8 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -65,6 +72,27 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            context.pushNamed(
+              'TalkToAI',
+              extra: <String, dynamic>{
+                kTransitionInfoKey: TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.fade,
+                  duration: Duration(milliseconds: 600),
+                ),
+              },
+            );
+          },
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          elevation: 8.0,
+          child: Icon(
+            Icons.mic_rounded,
+            color: FlutterFlowTheme.of(context).info,
+            size: 24.0,
+          ),
+        ),
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
@@ -83,7 +111,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
             ),
           ),
           title: Text(
-            'Ask about a product you have',
+            FFLocalizations.of(context).getText(
+              '6qbrmssz' /* Ask about a product you have */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -166,6 +196,10 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                               child: Container(
                                 width: 250.0,
                                 height: 250.0,
+                                constraints: BoxConstraints(
+                                  maxWidth: 250.0,
+                                  maxHeight: 250.0,
+                                ),
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -196,7 +230,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Text(
-                                            'Upload an Image',
+                                            FFLocalizations.of(context).getText(
+                                              '0viu9dkb' /* Upload an Image */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium,
                                           ),
@@ -210,7 +246,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                           ),
                         ),
                         Text(
-                          'OR',
+                          FFLocalizations.of(context).getText(
+                            '5baaij54' /* OR */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                         Padding(
@@ -227,7 +265,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                               focusNode: _model.textFieldFocusNode1,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Input URL',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'cqwxyx1x' /* Input URL */,
+                                ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
                                 hintStyle:
@@ -276,7 +316,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 24.0, 0.0, 0.0),
                             child: Text(
-                              'Context',
+                              FFLocalizations.of(context).getText(
+                                'ojg7s49j' /* Context */,
+                              ),
                               style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),
@@ -343,7 +385,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 12.0, 0.0, 0.0),
                             child: Text(
-                              'Copilot\'s Response',
+                              FFLocalizations.of(context).getText(
+                                '2exuj78i' /* Copilot's Response */,
+                              ),
                               style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),
@@ -418,7 +462,6 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
                       } else {
                         _model.openAPI =
                             await OpenAIAPIGroup.createChatCompletionCall.call(
-                          query: _model.textController2.text,
                           imageUrl: _model.imageURL,
                         );
                         _shouldSetState = true;
@@ -451,7 +494,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget> {
 
                       if (_shouldSetState) setState(() {});
                     },
-                    text: 'Ask about Product',
+                    text: FFLocalizations.of(context).getText(
+                      '36mb8lzo' /* Ask about Product */,
+                    ),
                     options: FFButtonOptions(
                       height: 40.0,
                       padding:

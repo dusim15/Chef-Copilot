@@ -55,6 +55,8 @@ class _OptionWidgetState extends State<OptionWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
       alignment: AlignmentDirectional(0.00, 1.00),
       child: Material(
@@ -128,7 +130,9 @@ class _OptionWidgetState extends State<OptionWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Add Product',
+                            FFLocalizations.of(context).getText(
+                              'xdgeubbj' /* Add Product */,
+                            ),
                             style: FlutterFlowTheme.of(context).headlineSmall,
                           ),
                         ],
@@ -162,7 +166,10 @@ class _OptionWidgetState extends State<OptionWidget> {
                                       focusNode: _model.textFieldFocusNode1,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelText: 'Item Name',
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          's06sy6ue' /* Item Name */,
+                                        ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium,
                                         hintStyle: FlutterFlowTheme.of(context)
@@ -221,7 +228,10 @@ class _OptionWidgetState extends State<OptionWidget> {
                                       focusNode: _model.textFieldFocusNode2,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelText: 'Quantity',
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          'bp5btcdx' /* Quantity */,
+                                        ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium,
                                         hintStyle: FlutterFlowTheme.of(context)
@@ -281,7 +291,10 @@ class _OptionWidgetState extends State<OptionWidget> {
                                       focusNode: _model.textFieldFocusNode3,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelText: 'Price',
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          'n7qtjf2l' /* Price */,
+                                        ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium,
                                         hintStyle: FlutterFlowTheme.of(context)
@@ -359,7 +372,11 @@ class _OptionWidgetState extends State<OptionWidget> {
                                         }
                                       },
                                       text: dateTimeFormat(
-                                          'MMMEd', _model.datePicked),
+                                        'MMMEd',
+                                        _model.datePicked,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      ),
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 46.0,
@@ -458,17 +475,27 @@ class _OptionWidgetState extends State<OptionWidget> {
                                 }
                               }
                             },
-                            child: Container(
+                            child: AnimatedContainer(
+                              duration: Duration(milliseconds: 100),
+                              curve: Curves.easeInOut,
                               width: 70.0,
                               height: 70.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFF2A2929),
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
+                                  alignment: AlignmentDirectional(0.00, 0.00),
                                   image: Image.network(
                                     _model.uploadedFileUrl,
                                   ).image,
                                 ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 4.0,
+                                    color: Color(0x33000000),
+                                    offset: Offset(0.0, 2.0),
+                                  )
+                                ],
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color:
@@ -476,6 +503,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                   width: 2.0,
                                 ),
                               ),
+                              alignment: AlignmentDirectional(0.00, 0.00),
                               child: Align(
                                 alignment: AlignmentDirectional(0.00, 0.00),
                                 child: FaIcon(
@@ -523,7 +551,9 @@ class _OptionWidgetState extends State<OptionWidget> {
                             await firestoreBatch.commit();
                           }
                         },
-                        text: 'Save',
+                        text: FFLocalizations.of(context).getText(
+                          '8yu7i0ld' /* Save */,
+                        ),
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 46.0,

@@ -16,6 +16,16 @@
 	<string>Chef Copilot</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>el</string>
+		<string>fr</string>
+		<string>zh_Hans</string>
+		<string>es</string>
+		<string>it</string>
+		<string>he</string>
+	</array>
 
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
@@ -59,6 +69,8 @@
     <string>In order to upload data, this app requires permission to access the photo library.</string>
 	<key>PermissionGroupNotification</key>
     <string>Recieve notifications?</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>We need access to the microphone to answer your response.</string>
 
 
 	<key>UILaunchStoryboardName</key>

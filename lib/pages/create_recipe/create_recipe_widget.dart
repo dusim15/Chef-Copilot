@@ -58,6 +58,8 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -73,7 +75,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  'Menu',
+                  FFLocalizations.of(context).getText(
+                    '1tb1rivq' /* Menu */,
+                  ),
                   style: FlutterFlowTheme.of(context).titleLarge,
                 ),
                 if (Theme.of(context).brightness == Brightness.dark)
@@ -93,7 +97,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Light Mode',
+                            FFLocalizations.of(context).getText(
+                              'a0t2k0co' /* Light Mode */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                           Icon(
@@ -122,7 +128,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Dark Mode',
+                            FFLocalizations.of(context).getText(
+                              '0oc6lxcz' /* Dark Mode */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                           FaIcon(
@@ -156,7 +164,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 12.0, 24.0, 0.0),
                           child: Text(
-                            'Find New Recipies',
+                            FFLocalizations.of(context).getText(
+                              'aosvo8j3' /* Find New Recipies */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
@@ -171,7 +181,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 4.0, 24.0, 0.0),
                           child: Text(
-                            'Provide a list of ingredients and we\'ll tell you what you can wake with them!',
+                            FFLocalizations.of(context).getText(
+                              'qvtmpdlw' /* Provide a list of ingredients ... */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -183,7 +195,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 24.0, 24.0, 0.0),
                               child: Text(
-                                'Enter the ingredients you have on hand',
+                                FFLocalizations.of(context).getText(
+                                  'w3w2p5az' /* Enter the ingredients you have... */,
+                                ),
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                             ),
@@ -196,7 +210,10 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Ingredients...',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    '2md05yfn' /* Ingredients... */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
                                   hintStyle:
@@ -250,7 +267,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 24.0, 24.0, 0.0),
                               child: Text(
-                                'Enter the condiments, seasoning, and sauces you have on hand.',
+                                FFLocalizations.of(context).getText(
+                                  'r2x6x79t' /* Enter the condiments, seasonin... */,
+                                ),
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                             ),
@@ -264,7 +283,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText:
-                                      'Condiments, seasoning and sauces...',
+                                      FFLocalizations.of(context).getText(
+                                    'cdfr8sl5' /* Condiments, seasoning and sauc... */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
                                   hintStyle:
@@ -318,7 +339,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 24.0, 24.0, 0.0),
                               child: Text(
-                                'Available leftovers (Optional)',
+                                FFLocalizations.of(context).getText(
+                                  'j9g4tgv0' /* Available leftovers (Optional) */,
+                                ),
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                             ),
@@ -332,7 +355,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText:
-                                      'Available leftovers (Optional)...',
+                                      FFLocalizations.of(context).getText(
+                                    'w302ckd9' /* Available leftovers (Optional)... */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
                                   hintStyle:
@@ -382,7 +407,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 24.0, 24.0, 0.0),
                           child: Text(
-                            'Type of Meal',
+                            FFLocalizations.of(context).getText(
+                              '9box9vhz' /* Type of Meal */,
+                            ),
                             style: FlutterFlowTheme.of(context).titleLarge,
                           ),
                         ),
@@ -397,7 +424,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 7.0),
                                 child: Text(
-                                  'Please select what time of day you want the meal',
+                                  FFLocalizations.of(context).getText(
+                                    'uc5kkya7' /* Please select what time of day... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -409,10 +438,26 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                               ),
                               FlutterFlowChoiceChips(
                                 options: [
-                                  ChipData('Breakfast', Icons.sunny),
-                                  ChipData('Brunch', FontAwesomeIcons.cloudSun),
-                                  ChipData('Lunch', Icons.cloud),
-                                  ChipData('Dinner', FontAwesomeIcons.cloudMoon)
+                                  ChipData(
+                                      FFLocalizations.of(context).getText(
+                                        '2sekcuzu' /* Breakfast */,
+                                      ),
+                                      Icons.sunny),
+                                  ChipData(
+                                      FFLocalizations.of(context).getText(
+                                        'r2nlgwxf' /* Brunch */,
+                                      ),
+                                      FontAwesomeIcons.cloudSun),
+                                  ChipData(
+                                      FFLocalizations.of(context).getText(
+                                        'amhlyrkb' /* Lunch */,
+                                      ),
+                                      Icons.cloud),
+                                  ChipData(
+                                      FFLocalizations.of(context).getText(
+                                        'do92tfg0' /* Dinner */,
+                                      ),
+                                      FontAwesomeIcons.cloudMoon)
                                 ],
                                 onChanged: (val) => setState(() =>
                                     _model.choiceChipsValue1 = val?.first),
@@ -468,7 +513,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 12.0, 24.0, 0.0),
                           child: Text(
-                            'Available Time',
+                            FFLocalizations.of(context).getText(
+                              'kb5cep1z' /* Available Time */,
+                            ),
                             style: FlutterFlowTheme.of(context).titleLarge,
                           ),
                         ),
@@ -483,7 +530,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 7.0),
                                 child: Text(
-                                  'Please select how much  time you have to make this meal',
+                                  FFLocalizations.of(context).getText(
+                                    'hi7iwckb' /* Please select how much  time y... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -495,12 +544,24 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                               ),
                               FlutterFlowChoiceChips(
                                 options: [
-                                  ChipData('5 min'),
-                                  ChipData('15 min'),
-                                  ChipData('30 min'),
-                                  ChipData('1 hour'),
-                                  ChipData('2 hours'),
-                                  ChipData('infinite')
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    'eu1h115a' /* 5 min */,
+                                  )),
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    '70p0wl0p' /* 15 min */,
+                                  )),
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    '94sl5qjg' /* 30 min */,
+                                  )),
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    'mytzw9ng' /* 1 hour */,
+                                  )),
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    'p7hq20gh' /* 2 hours */,
+                                  )),
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    'jpyobpnv' /* infinite */,
+                                  ))
                                 ],
                                 onChanged: (val) => setState(() =>
                                     _model.choiceChipsValue2 = val?.first),
@@ -586,7 +647,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 return;
                                 if (_shouldSetState) setState(() {});
                               },
-                              text: 'Generate Recipies',
+                              text: FFLocalizations.of(context).getText(
+                                '4dk7vxu3' /* Generate Recipies */,
+                              ),
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 50.0,
@@ -650,7 +713,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   ),
                                 ),
                                 Text(
-                                  'Chef Copilot',
+                                  FFLocalizations.of(context).getText(
+                                    '1t9l4nbb' /* Chef Copilot */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall,
                                 ),

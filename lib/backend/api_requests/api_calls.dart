@@ -15,7 +15,7 @@ class OpenAIAPIGroup {
   static Map<String, String> headers = {};
   static CreateChatCompletionCall createChatCompletionCall =
       CreateChatCompletionCall();
-  static CreateCompletionCall createCompletionCall = CreateCompletionCall();
+  static GetResponseCall getResponseCall = GetResponseCall();
   static CreateEditCall createEditCall = CreateEditCall();
   static CreateImageCall createImageCall = CreateImageCall();
   static CreateImageEditCall createImageEditCall = CreateImageEditCall();
@@ -133,8 +133,10 @@ class CreateChatCompletionCall {
   }
 }
 
-class CreateCompletionCall {
+class GetResponseCall {
   Future<ApiCallResponse> call({
+    String? prompt = '',
+    String? language = '',
     String? apiKey = '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',
   }) async {
     final ffApiRequestBody = '''
@@ -158,7 +160,7 @@ class CreateCompletionCall {
   "user": "user-1234"
 }''';
     return ApiManager.instance.makeApiCall(
-      callName: 'createCompletion',
+      callName: 'getResponse',
       apiUrl: '${OpenAIAPIGroup.baseUrl}/completions',
       callType: ApiCallType.POST,
       headers: {
@@ -173,6 +175,11 @@ class CreateCompletionCall {
       cache: false,
     );
   }
+
+  dynamic message(dynamic response) => getJsonField(
+        response,
+        r'''$.choices[:].message.content''',
+      );
 }
 
 class CreateEditCall {

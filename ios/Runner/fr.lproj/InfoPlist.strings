@@ -1,0 +1,2 @@
+NSPhotoLibraryUsageDescription = "Autoriser l'accès à la bibliothèque pour définir une image du produit";
+PermissionGroupNotification = "Recevoir des notifications ?";

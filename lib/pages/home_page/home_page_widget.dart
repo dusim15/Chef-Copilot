@@ -83,6 +83,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -134,7 +136,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Chef Copilot',
+                    FFLocalizations.of(context).getText(
+                      'z7q318wm' /* Chef Copilot */,
+                    ),
                     style: FlutterFlowTheme.of(context).headlineLarge,
                   ),
                   Divider(
@@ -157,7 +161,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            'Profile',
+                            FFLocalizations.of(context).getText(
+                              '96tbeqpo' /* Profile */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyLarge,
                           ),
                         ),
@@ -187,7 +193,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Ask Copilot',
+                              FFLocalizations.of(context).getText(
+                                'ykwudah9' /* Ask Copilot */,
+                              ),
                               style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),
@@ -210,7 +218,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            'Settings',
+                            FFLocalizations.of(context).getText(
+                              'lnhxxh3t' /* Settings */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyLarge,
                           ),
                         ),
@@ -244,7 +254,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Log Out',
+                              FFLocalizations.of(context).getText(
+                                'iqmixj4b' /* Log Out */,
+                              ),
                               style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),
@@ -270,7 +282,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Chef Copilot',
+                      FFLocalizations.of(context).getText(
+                        '3byzw7t1' /* Chef Copilot */,
+                      ),
                       style: FlutterFlowTheme.of(context).headlineLarge,
                     ),
                     Padding(
@@ -310,13 +324,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             24.0, 4.0, 24.0, 4.0),
                         tabs: [
                           Tab(
-                            text: 'Recipes',
+                            text: FFLocalizations.of(context).getText(
+                              't0j5ilae' /* Recipes */,
+                            ),
                             icon: Icon(
                               Icons.food_bank,
                             ),
                           ),
                           Tab(
-                            text: 'Inventory',
+                            text: FFLocalizations.of(context).getText(
+                              'smjtjrud' /* Inventory */,
+                            ),
                             icon: Icon(
                               Icons.restaurant_menu_outlined,
                             ),
@@ -340,7 +358,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     RecipeListRecord.collection,
                                   ),
                                   padding: EdgeInsets.zero,
-                                  shrinkWrap: true,
                                   reverse: false,
                                   scrollDirection: Axis.vertical,
                                   builderDelegate: PagedChildBuilderDelegate<

@@ -1,0 +1,2 @@
+NSPhotoLibraryUsageDescription = "允许访问库以设置产品图像";
+PermissionGroupNotification = "收到通知？";

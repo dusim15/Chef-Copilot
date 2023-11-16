@@ -104,6 +104,8 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
       alignment: AlignmentDirectional(1.00, 0.00),
       child: Padding(
@@ -139,7 +141,9 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                     child: Text(
-                      'Ask Copilot',
+                      FFLocalizations.of(context).getText(
+                        '835sccoa' /* Ask Copilot */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -153,19 +157,8 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                       color: FlutterFlowTheme.of(context).primaryText,
                       size: 28.0,
                     ),
-                    onPressed: () async {
-                      context.pushNamed(
-                        'CreateRecipe',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 200),
-                          ),
-                        },
-                      );
-
-                      Navigator.pop(context);
+                    onPressed: () {
+                      print('createRecipe pressed ...');
                     },
                   ),
                 ],
@@ -197,7 +190,9 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                     child: Text(
-                      'Create Recipe',
+                      FFLocalizations.of(context).getText(
+                        'n13pgude' /* Create Recipe */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -257,7 +252,9 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                     child: Text(
-                      'Add Product',
+                      FFLocalizations.of(context).getText(
+                        'yugna71g' /* Add Product */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),

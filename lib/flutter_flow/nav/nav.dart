@@ -126,6 +126,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             backgroundImage:
                 params.getParam('backgroundImage', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'TalkToAI',
+          path: '/talkToAI',
+          builder: (context, params) => TalkToAIWidget(
+            backgroundImage:
+                params.getParam('backgroundImage', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'settings',
+          path: '/settings',
+          builder: (context, params) => SettingsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
