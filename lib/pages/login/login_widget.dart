@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -343,7 +344,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .titleMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Plus Jakarta Sans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
@@ -462,7 +463,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .titleMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Plus Jakarta Sans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
@@ -601,7 +602,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .titleMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Plus Jakarta Sans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
@@ -794,7 +795,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .titleSmall
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Plus Jakarta Sans',
                                                                     color: Colors
                                                                         .white,
                                                                   ),
@@ -939,7 +940,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              'Plus Jakarta Sans',
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -1019,7 +1020,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                           textStyle: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Readex Pro',
+                                                                                fontFamily: 'Plus Jakarta Sans',
                                                                                 fontWeight: FontWeight.bold,
                                                                               ),
                                                                           elevation:
@@ -1418,7 +1419,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .titleSmall
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Plus Jakarta Sans',
                                                                     color: Colors
                                                                         .white,
                                                                   ),
@@ -1550,7 +1551,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Plus Jakarta Sans',
                                                                         fontWeight:
                                                                             FontWeight.bold,
                                                                       ),
@@ -1639,7 +1640,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              'Plus Jakarta Sans',
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -1725,7 +1726,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Plus Jakarta Sans',
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,

@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,6 +10,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -94,10 +96,9 @@ class _OptionWidgetState extends State<OptionWidget> {
                     child: SizedBox(
                       width: 50.0,
                       height: 50.0,
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          FlutterFlowTheme.of(context).primary,
-                        ),
+                      child: SpinKitWanderingCubes(
+                        color: FlutterFlowTheme.of(context).primary,
+                        size: 50.0,
                       ),
                     ),
                   );
@@ -171,7 +172,11 @@ class _OptionWidgetState extends State<OptionWidget> {
                                           's06sy6ue' /* Item Name */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              fontSize: 16.0,
+                                            ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium,
                                         enabledBorder: OutlineInputBorder(
@@ -223,72 +228,92 @@ class _OptionWidgetState extends State<OptionWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 12.0, 16.0, 0.0),
-                                    child: TextFormField(
-                                      controller: _model.textController2,
-                                      focusNode: _model.textFieldFocusNode2,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelText:
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.00, 0.00),
+                                          child: Text(
                                             FFLocalizations.of(context).getText(
-                                          'bp5btcdx' /* Quantity */,
-                                        ),
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            width: 2.0,
+                                              '4o8l57ry' /* Quantity */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      'Plus Jakarta Sans',
+                                                  fontSize: 16.0,
+                                                ),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
                                         ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                        Container(
+                                          width: 160.0,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            width: 2.0,
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            shape: BoxShape.rectangle,
+                                            border: Border.all(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 2.0,
+                                            ),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 2.0,
+                                          child: FlutterFlowCountController(
+                                            decrementIconBuilder: (enabled) =>
+                                                FaIcon(
+                                              FontAwesomeIcons.minus,
+                                              color: enabled
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .secondaryText
+                                                  : FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 20.0,
+                                            ),
+                                            incrementIconBuilder: (enabled) =>
+                                                FaIcon(
+                                              FontAwesomeIcons.plus,
+                                              color: enabled
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .secondaryText
+                                                  : FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 20.0,
+                                            ),
+                                            countBuilder: (count) => Text(
+                                              count.toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge,
+                                            ),
+                                            count: _model
+                                                .countControllerValue ??= 1,
+                                            updateCount: (count) => setState(
+                                                () => _model
+                                                        .countControllerValue =
+                                                    count),
+                                            stepSize: 1,
+                                            minimum: 1,
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
                                         ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        contentPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                16.0, 0.0, 24.0, 0.0),
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                      keyboardType: TextInputType.number,
-                                      validator: _model.textController2Validator
-                                          .asValidator(context),
+                                      ],
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 12.0, 16.0, 0.0),
                                     child: TextFormField(
-                                      controller: _model.textController3,
-                                      focusNode: _model.textFieldFocusNode3,
+                                      controller: _model.textController2,
+                                      focusNode: _model.textFieldFocusNode2,
+                                      textCapitalization:
+                                          TextCapitalization.none,
+                                      textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText:
@@ -296,7 +321,11 @@ class _OptionWidgetState extends State<OptionWidget> {
                                           'n7qtjf2l' /* Price */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              fontSize: 16.0,
+                                            ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium,
                                         enabledBorder: OutlineInputBorder(
@@ -344,8 +373,85 @@ class _OptionWidgetState extends State<OptionWidget> {
                                       keyboardType:
                                           const TextInputType.numberWithOptions(
                                               decimal: true),
+                                      validator: _model.textController2Validator
+                                          .asValidator(context),
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.allow(
+                                            RegExp('[0-9]'))
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 12.0, 16.0, 0.0),
+                                    child: TextFormField(
+                                      controller: _model.textController3,
+                                      focusNode: _model.textFieldFocusNode3,
+                                      textCapitalization:
+                                          TextCapitalization.none,
+                                      textInputAction: TextInputAction.next,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          'vqxny1fd' /* Category */,
+                                        ),
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              fontSize: 16.0,
+                                            ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        contentPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                16.0, 0.0, 24.0, 0.0),
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       validator: _model.textController3Validator
                                           .asValidator(context),
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.allow(
+                                            RegExp('[a-zA-Z0-9]'))
+                                      ],
                                     ),
                                   ),
                                   Padding(
@@ -371,11 +477,14 @@ class _OptionWidgetState extends State<OptionWidget> {
                                           });
                                         }
                                       },
-                                      text: dateTimeFormat(
-                                        'MMMEd',
-                                        _model.datePicked,
-                                        locale: FFLocalizations.of(context)
-                                            .languageCode,
+                                      text: valueOrDefault<String>(
+                                        dateTimeFormat(
+                                          'MMMEd',
+                                          _model.datePicked,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
+                                        'Date Purchased',
                                       ),
                                       options: FFButtonOptions(
                                         width: double.infinity,
@@ -390,7 +499,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily: 'Plus Jakarta Sans',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .success,
@@ -481,7 +590,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                               width: 70.0,
                               height: 70.0,
                               decoration: BoxDecoration(
-                                color: Color(0xFF2A2929),
+                                color: FlutterFlowTheme.of(context).alternate,
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   alignment: AlignmentDirectional(0.00, 0.00),
@@ -498,8 +607,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                 ],
                                 shape: BoxShape.circle,
                                 border: Border.all(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   width: 2.0,
                                 ),
                               ),
@@ -523,33 +631,18 @@ class _OptionWidgetState extends State<OptionWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          final firestoreBatch =
-                              FirebaseFirestore.instance.batch();
-                          try {
-                            firestoreBatch.set(
-                                GroceryItemRecord.collection.doc(),
-                                createGroceryItemRecordData(
-                                  name: _model.textController1.text,
-                                  price: double.tryParse(
-                                      _model.textController3.text),
-                                  createdAt: _model.datePicked,
-                                  quantity:
-                                      int.tryParse(_model.textController2.text),
-                                  photoUrl: _model.uploadedFileUrl,
-                                ));
-
-                            firestoreBatch.update(currentUserReference!, {
-                              ...mapToFirestore(
-                                {
-                                  'groceryItem': FieldValue.arrayUnion(
-                                      [columnGroceryItemRecord?.reference]),
-                                },
-                              ),
-                            });
-                            Navigator.pop(context);
-                          } finally {
-                            await firestoreBatch.commit();
-                          }
+                          await GroceryItemRecord.collection
+                              .doc()
+                              .set(createGroceryItemRecordData(
+                                name: _model.textController1.text,
+                                price: double.tryParse(
+                                    _model.textController2.text),
+                                createdAt: _model.datePicked,
+                                quantity: _model.countControllerValue,
+                                photoUrl: _model.uploadedFileUrl,
+                                category: _model.textController3.text,
+                              ));
+                          Navigator.pop(context);
                         },
                         text: FFLocalizations.of(context).getText(
                           '8yu7i0ld' /* Save */,
@@ -564,7 +657,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Plus Jakarta Sans',
                                     color: FlutterFlowTheme.of(context).success,
                                   ),
                           elevation: 3.0,

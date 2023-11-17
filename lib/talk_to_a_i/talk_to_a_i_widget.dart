@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -193,7 +194,7 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall
                                       .override(
-                                        fontFamily: 'Outfit',
+                                        fontFamily: 'Urbanist',
                                         color: Color(0x00FFFFFF),
                                         fontSize: 2.0,
                                       ),
@@ -325,7 +326,7 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
                         '27xzotz5' /* Tap to Speak */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'Readex Pro',
+                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w500,
                           ),
                     ),

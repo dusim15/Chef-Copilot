@@ -4,8 +4,10 @@ import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -71,10 +73,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
         ),
         title: Text(
           FFLocalizations.of(context).getText(
-            'csd0hnif' /* Settings Page */,
+            'tuf7u61b' /* Settings Page */,
           ),
           style: FlutterFlowTheme.of(context).headlineMedium.override(
-                fontFamily: 'Outfit',
+                fontFamily: 'Urbanist',
                 fontSize: 28.0,
                 fontWeight: FontWeight.w500,
               ),
@@ -100,7 +102,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'o03ur49r' /* My Subscription */,
+                        'hd048vcb' /* My Subscription */,
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge,
                     ),
@@ -127,7 +129,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        '8kafvl9h' /* Getting Started */,
+                        'yi0oem2q' /* Getting Started */,
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge,
                     ),
@@ -154,7 +156,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'mtlehkdo' /* About Us */,
+                        'c7sitweq' /* About Us */,
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge,
                     ),
@@ -181,7 +183,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        '6vuvz4zb' /* Help */,
+                        '6tw67qoc' /* Help */,
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge,
                     ),
@@ -208,7 +210,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'dp3spvav' /* Privacy Policy */,
+                        'cawk0eg9' /* Privacy Policy */,
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge,
                     ),
@@ -235,7 +237,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        '6ohd1h60' /* Terms & Conditions */,
+                        'nzfoc30r' /* Terms & Conditions */,
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge,
                     ),
@@ -249,29 +251,85 @@ class _SettingsWidgetState extends State<SettingsWidget> {
               ),
             ),
           ),
-          FlutterFlowLanguageSelector(
-            width: 200.0,
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-            borderColor: Colors.transparent,
-            dropdownIconColor: Colors.white,
-            borderRadius: 8.0,
-            textStyle: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.normal,
-              fontSize: 13.0,
+          Flexible(
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            '0ish1v7n' /* Select Language */,
+                          ),
+                          style: FlutterFlowTheme.of(context).titleLarge,
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              5.0, 0.0, 0.0, 0.0),
+                          child: AlignedTooltip(
+                            content: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    4.0, 4.0, 4.0, 4.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'd299ize5' /* The selected language determin... */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context).bodyLarge,
+                                )),
+                            offset: 4.0,
+                            preferredDirection: AxisDirection.down,
+                            borderRadius: BorderRadius.circular(8.0),
+                            backgroundColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            elevation: 4.0,
+                            tailBaseWidth: 24.0,
+                            tailLength: 12.0,
+                            waitDuration: Duration(milliseconds: 100),
+                            showDuration: Duration(milliseconds: 1500),
+                            triggerMode: TooltipTriggerMode.tap,
+                            child: Icon(
+                              Icons.info_outline_rounded,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 16.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  FlutterFlowLanguageSelector(
+                    width: 200.0,
+                    backgroundColor:
+                        FlutterFlowTheme.of(context).secondaryBackground,
+                    borderColor: Colors.transparent,
+                    dropdownIconColor: Colors.white,
+                    borderRadius: 8.0,
+                    textStyle: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 13.0,
+                    ),
+                    hideFlags: true,
+                    flagSize: 24.0,
+                    flagTextGap: 8.0,
+                    currentLanguage: FFLocalizations.of(context).languageCode,
+                    languages: FFLocalizations.languages(),
+                    onChanged: (lang) => setAppLanguage(context, lang),
+                  ),
+                ],
+              ),
             ),
-            hideFlags: true,
-            flagSize: 24.0,
-            flagTextGap: 8.0,
-            currentLanguage: FFLocalizations.of(context).languageCode,
-            languages: FFLocalizations.languages(),
-            onChanged: (lang) => setAppLanguage(context, lang),
           ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 8.0),
             child: Text(
               FFLocalizations.of(context).getText(
-                'ue86jpkp' /* Follow us on */,
+                '0vvlstkk' /* Follow us on */,
               ),
               style: FlutterFlowTheme.of(context).labelMedium,
             ),
@@ -349,7 +407,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
             child: Text(
               FFLocalizations.of(context).getText(
-                'hrklg4eo' /* App Versions */,
+                'ixnl31jo' /* App Versions */,
               ),
               style: FlutterFlowTheme.of(context).titleLarge,
             ),
@@ -358,7 +416,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
             child: Text(
               FFLocalizations.of(context).getText(
-                '4u035r7s' /* v0.0.1 */,
+                'zqfpamt4' /* v0.0.1 */,
               ),
               style: FlutterFlowTheme.of(context).labelMedium,
             ),
@@ -374,7 +432,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 context.goNamedAuth('Login', context.mounted);
               },
               text: FFLocalizations.of(context).getText(
-                'ebt2j7cq' /* Log Out */,
+                'fj6xlu8w' /* Log Out */,
               ),
               options: FFButtonOptions(
                 height: 40.0,

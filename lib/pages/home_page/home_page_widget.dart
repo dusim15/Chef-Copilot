@@ -1,8 +1,7 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/option/option_widget.dart';
-import '/components/tray/tray_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -30,8 +30,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  var hasContainerTriggered = false;
   final animationsMap = {
+    'containerOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: false,
+      effects: [
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.9, 0.9),
+          end: Offset(1.0, 1.0),
+        ),
+      ],
+    ),
     'iconOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
@@ -39,9 +52,29 @@ class _HomePageWidgetState extends State<HomePageWidget>
         RotateEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
+          duration: 400.ms,
+          begin: 0.0,
+          end: 0.5,
+        ),
+      ],
+    ),
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 2.ms,
           duration: 600.ms,
           begin: 0.0,
           end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 1.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 33.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -91,177 +124,243 @@ class _HomePageWidgetState extends State<HomePageWidget>
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            await showModalBottomSheet(
-              isScrollControlled: true,
-              backgroundColor: Colors.transparent,
-              barrierColor: Color(0x9A000000),
-              useSafeArea: true,
-              context: context,
-              builder: (context) {
-                return GestureDetector(
-                  onTap: () => _model.unfocusNode.canRequestFocus
-                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                      : FocusScope.of(context).unfocus(),
-                  child: Padding(
-                    padding: MediaQuery.viewInsetsOf(context),
-                    child: TrayWidget(),
-                  ),
-                );
+            context.pushNamed(
+              'CreateRecipe',
+              extra: <String, dynamic>{
+                kTransitionInfoKey: TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.bottomToTop,
+                ),
               },
-            ).then((value) => safeSetState(() {}));
+            );
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,
-          elevation: 12.0,
+          elevation: 8.0,
           child: Icon(
-            Icons.restaurant_rounded,
-            color: FlutterFlowTheme.of(context).success,
+            Icons.fastfood_sharp,
+            color: FlutterFlowTheme.of(context).info,
             size: 24.0,
           ),
         ),
         endDrawer: Drawer(
           elevation: 16.0,
           child: Container(
-            width: double.infinity,
-            height: double.infinity,
+            width: 100.0,
+            height: 100.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 60.0, 16.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12.0, 70.0, 12.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    FFLocalizations.of(context).getText(
-                      'z7q318wm' /* Chef Copilot */,
+                  Align(
+                    alignment: AlignmentDirectional(0.00, 0.00),
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        '8xqfy9h6' /* Chef Copilot */,
+                      ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineLarge.override(
+                                fontFamily: 'Urbanist',
+                                fontWeight: FontWeight.bold,
+                              ),
                     ),
-                    style: FlutterFlowTheme.of(context).headlineLarge,
                   ),
                   Divider(
-                    height: 30.0,
                     thickness: 1.0,
+                    indent: 8.0,
+                    endIndent: 8.0,
                     color: FlutterFlowTheme.of(context).accent4,
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        FaIcon(
-                          FontAwesomeIcons.userAlt,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              '96tbeqpo' /* Profile */,
-                            ),
-                            style: FlutterFlowTheme.of(context).bodyLarge,
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                    child: MouseRegion(
+                      opaque: false,
+                      cursor: SystemMouseCursors.click ?? MouseCursor.defer,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('SearchImage');
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: _model.mouseRegionHovered1!
+                                ? FlutterFlowTheme.of(context).primaryBackground
+                                : Color(0x00000000),
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('SearchImage');
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Icon(
-                            Icons.star_outline_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          Padding(
+                          child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'ykwudah9' /* Ask Copilot */,
-                              ),
-                              style: FlutterFlowTheme.of(context).bodyLarge,
+                                12.0, 12.0, 0.0, 12.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                FaIcon(
+                                  FontAwesomeIcons.robot,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '7oa1y7bh' /* Talk to Copilot */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
+                        ),
                       ),
+                      onEnter: ((event) async {
+                        setState(() => _model.mouseRegionHovered1 = true);
+                      }),
+                      onExit: ((event) async {
+                        setState(() => _model.mouseRegionHovered1 = false);
+                      }),
                     ),
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Icon(
-                          Icons.settings_rounded,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'lnhxxh3t' /* Settings */,
-                            ),
-                            style: FlutterFlowTheme.of(context).bodyLarge,
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                    child: MouseRegion(
+                      opaque: false,
+                      cursor: SystemMouseCursors.click ?? MouseCursor.defer,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('settings');
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: _model.mouseRegionHovered2!
+                                ? FlutterFlowTheme.of(context).primaryBackground
+                                : Color(0x00000000),
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        GoRouter.of(context).prepareAuthEvent();
-                        await authManager.signOut();
-                        GoRouter.of(context).clearRedirectLocation();
-
-                        context.goNamedAuth('Login', context.mounted);
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Icon(
-                            Icons.logout_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          Padding(
+                          child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'iqmixj4b' /* Log Out */,
-                              ),
-                              style: FlutterFlowTheme.of(context).bodyLarge,
+                                12.0, 12.0, 0.0, 12.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Icon(
+                                  Icons.settings_outlined,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '293jyrru' /* Settings */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
+                        ),
                       ),
+                      onEnter: ((event) async {
+                        setState(() => _model.mouseRegionHovered2 = true);
+                      }),
+                      onExit: ((event) async {
+                        setState(() => _model.mouseRegionHovered2 = false);
+                      }),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                    child: MouseRegion(
+                      opaque: false,
+                      cursor: SystemMouseCursors.click ?? MouseCursor.defer,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await launchURL('https://davidusim.flutterflow.app');
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: _model.mouseRegionHovered3!
+                                ? FlutterFlowTheme.of(context).primaryBackground
+                                : Color(0x00000000),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 12.0, 0.0, 12.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Icon(
+                                  Icons.info,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'p11fhk6m' /* About me */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      onEnter: ((event) async {
+                        setState(() => _model.mouseRegionHovered3 = true);
+                      }),
+                      onExit: ((event) async {
+                        setState(() => _model.mouseRegionHovered3 = false);
+                      }),
                     ),
                   ),
                 ],
@@ -269,170 +368,165 @@ class _HomePageWidgetState extends State<HomePageWidget>
             ),
           ),
         ),
-        body: SafeArea(
-          top: true,
+        body: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        '3byzw7t1' /* Chef Copilot */,
-                      ),
-                      style: FlutterFlowTheme.of(context).headlineLarge,
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          scaffoldKey.currentState!.openEndDrawer();
-                        },
-                        child: Icon(
-                          Icons.menu_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 30.0,
+                    Align(
+                      alignment: AlignmentDirectional(0.00, 0.00),
+                      child: Text(
+                        FFLocalizations.of(context).getText(
+                          '75ky3amz' /* Chef Copilot */,
                         ),
+                        style: FlutterFlowTheme.of(context).headlineLarge,
                       ),
+                    ),
+                    FlutterFlowIconButton(
+                      borderRadius: 20.0,
+                      borderWidth: 0.0,
+                      buttonSize: 50.0,
+                      icon: Icon(
+                        Icons.menu_rounded,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 32.0,
+                      ),
+                      onPressed: () {
+                        print('IconButton pressed ...');
+                      },
                     ),
                   ],
                 ),
               ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment(0.0, 0),
-                      child: TabBar(
-                        labelColor: FlutterFlowTheme.of(context).primary,
-                        unselectedLabelColor:
-                            FlutterFlowTheme.of(context).secondaryText,
-                        labelStyle: FlutterFlowTheme.of(context).labelSmall,
-                        unselectedLabelStyle: TextStyle(),
-                        indicatorColor: FlutterFlowTheme.of(context).primary,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 4.0, 24.0, 4.0),
-                        tabs: [
-                          Tab(
-                            text: FFLocalizations.of(context).getText(
-                              't0j5ilae' /* Recipes */,
+              Flexible(
+                child: Align(
+                  alignment: AlignmentDirectional(-1.00, -1.00),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment(0.0, 0),
+                        child: TabBar(
+                          labelColor: FlutterFlowTheme.of(context).primary,
+                          unselectedLabelColor:
+                              FlutterFlowTheme.of(context).secondaryText,
+                          labelStyle: FlutterFlowTheme.of(context).titleMedium,
+                          unselectedLabelStyle: TextStyle(),
+                          indicatorColor: FlutterFlowTheme.of(context).primary,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              4.0, 4.0, 4.0, 4.0),
+                          tabs: [
+                            Tab(
+                              text: FFLocalizations.of(context).getText(
+                                'j64d6xwh' /* Recipies */,
+                              ),
+                              icon: Icon(
+                                Icons.receipt_long,
+                              ),
                             ),
-                            icon: Icon(
-                              Icons.food_bank,
+                            Tab(
+                              text: FFLocalizations.of(context).getText(
+                                'kzr0fohl' /* Inventory */,
+                              ),
+                              icon: Icon(
+                                Icons.food_bank_rounded,
+                              ),
                             ),
-                          ),
-                          Tab(
-                            text: FFLocalizations.of(context).getText(
-                              'smjtjrud' /* Inventory */,
-                            ),
-                            icon: Icon(
-                              Icons.restaurant_menu_outlined,
-                            ),
-                          ),
-                        ],
-                        controller: _model.tabBarController,
+                          ],
+                          controller: _model.tabBarController,
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: TabBarView(
-                        controller: _model.tabBarController,
-                        children: [
-                          SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                PagedListView<DocumentSnapshot<Object?>?,
-                                    RecipeListRecord>(
-                                  pagingController:
-                                      _model.setListViewController1(
-                                    RecipeListRecord.collection,
-                                  ),
-                                  padding: EdgeInsets.zero,
-                                  reverse: false,
-                                  scrollDirection: Axis.vertical,
-                                  builderDelegate: PagedChildBuilderDelegate<
+                      Expanded(
+                        child: TabBarView(
+                          controller: _model.tabBarController,
+                          children: [
+                            SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  PagedListView<DocumentSnapshot<Object?>?,
                                       RecipeListRecord>(
-                                    // Customize what your widget looks like when it's loading the first page.
-                                    firstPageProgressIndicatorBuilder: (_) =>
-                                        Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
+                                    pagingController:
+                                        _model.setListViewController1(
+                                      RecipeListRecord.collection,
+                                    ),
+                                    padding: EdgeInsets.zero,
+                                    shrinkWrap: true,
+                                    reverse: false,
+                                    scrollDirection: Axis.vertical,
+                                    builderDelegate: PagedChildBuilderDelegate<
+                                        RecipeListRecord>(
+                                      // Customize what your widget looks like when it's loading the first page.
+                                      firstPageProgressIndicatorBuilder: (_) =>
+                                          Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: SpinKitWanderingCubes(
+                                            color: FlutterFlowTheme.of(context)
                                                 .primary,
+                                            size: 50.0,
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    // Customize what your widget looks like when it's loading another page.
-                                    newPageProgressIndicatorBuilder: (_) =>
-                                        Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
+                                      // Customize what your widget looks like when it's loading another page.
+                                      newPageProgressIndicatorBuilder: (_) =>
+                                          Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: SpinKitWanderingCubes(
+                                            color: FlutterFlowTheme.of(context)
                                                 .primary,
+                                            size: 50.0,
                                           ),
                                         ),
                                       ),
-                                    ),
 
-                                    itemBuilder: (context, _, listViewIndex) {
-                                      final listViewRecipeListRecord = _model
-                                          .listViewPagingController1!
-                                          .itemList![listViewIndex];
-                                      return Container(
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Padding(
+                                      itemBuilder: (context, _, listViewIndex) {
+                                        final listViewRecipeListRecord = _model
+                                            .listViewPagingController1!
+                                            .itemList![listViewIndex];
+                                        return Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 12.0),
+                                                  0.0, 0.0, 0.0, 24.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        16.0, 8.0, 16.0, 12.0),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
-                                                  child: Image.network(
-                                                    listViewRecipeListRecord
-                                                        .imageUrl,
-                                                    width: double.infinity,
-                                                    height: 230.0,
-                                                    fit: BoxFit.cover,
+                                                        12.0, 12.0, 12.0, 12.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  height: 200.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.network(
+                                                        listViewRecipeListRecord
+                                                            .imageUrl,
+                                                      ).image,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
                                                   ),
                                                 ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        16.0, 0.0, 16.0, 4.0),
+                                                        12.0, 8.0, 12.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -440,15 +534,27 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       MainAxisAlignment
                                                           .spaceBetween,
                                                   children: [
-                                                    Flexible(
-                                                      child: Text(
-                                                        listViewRecipeListRecord
-                                                            .name,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLarge,
-                                                      ),
+                                                    Text(
+                                                      listViewRecipeListRecord
+                                                          .name,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge,
+                                                    ),
+                                                    Text(
+                                                      listViewRecipeListRecord
+                                                          .typeOfMeal,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF07AE05),
+                                                              ),
                                                     ),
                                                   ],
                                                 ),
@@ -456,39 +562,301 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        16.0, 0.0, 16.0, 4.0),
+                                                        12.0, 8.0, 12.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
+                                                      MainAxisAlignment.end,
                                                   children: [
-                                                    Icon(
-                                                      Icons.access_time_rounded,
-                                                      color:
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        listViewRecipeListRecord
+                                                            .timeAllocated
+                                                            ?.secondsSinceEpoch
+                                                            .toString(),
+                                                        '2 minutes',
+                                                      ),
+                                                      style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondaryText,
-                                                      size: 24.0,
+                                                              .bodyLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                              ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 0.0),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 12.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (animationsMap[
+                                                  'iconOnActionTriggerAnimation'] !=
+                                              null) {
+                                            await animationsMap[
+                                                    'iconOnActionTriggerAnimation']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation'] !=
+                                              null) {
+                                            setState(() =>
+                                                hasContainerTriggered = true);
+                                            SchedulerBinding.instance
+                                                .addPostFrameCallback((_) async =>
+                                                    await animationsMap[
+                                                            'containerOnActionTriggerAnimation']!
+                                                        .controller
+                                                        .forward(from: 0.0));
+                                          }
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            barrierColor: Color(0x50000000),
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: OptionWidget(),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 100.0,
+                                          decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryBackground,
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground
+                                              ],
+                                              stops: [0.0, 1.0],
+                                              begin: AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              end: AlignmentDirectional(0, 1.0),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Align(
+                                            alignment: AlignmentDirectional(
+                                                0.00, 0.00),
+                                            child: Icon(
+                                              Icons.add_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 40.0,
+                                            ).animateOnActionTrigger(
+                                              animationsMap[
+                                                  'iconOnActionTriggerAnimation']!,
+                                            ),
+                                          ),
+                                        ),
+                                      ).animateOnActionTrigger(
+                                          animationsMap[
+                                              'containerOnActionTriggerAnimation']!,
+                                          hasBeenTriggered:
+                                              hasContainerTriggered),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 12.0, 0.0, 0.0),
+                                      child: PagedListView<
+                                          DocumentSnapshot<Object?>?,
+                                          GroceryItemRecord>(
+                                        pagingController:
+                                            _model.setListViewController2(
+                                          GroceryItemRecord.collection,
+                                        ),
+                                        padding: EdgeInsets.zero,
+                                        shrinkWrap: true,
+                                        reverse: false,
+                                        scrollDirection: Axis.vertical,
+                                        builderDelegate:
+                                            PagedChildBuilderDelegate<
+                                                GroceryItemRecord>(
+                                          // Customize what your widget looks like when it's loading the first page.
+                                          firstPageProgressIndicatorBuilder:
+                                              (_) => Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: SpinKitWanderingCubes(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 50.0,
+                                              ),
+                                            ),
+                                          ),
+                                          // Customize what your widget looks like when it's loading another page.
+                                          newPageProgressIndicatorBuilder:
+                                              (_) => Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: SpinKitWanderingCubes(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 50.0,
+                                              ),
+                                            ),
+                                          ),
+
+                                          itemBuilder:
+                                              (context, _, listViewIndex) {
+                                            final listViewGroceryItemRecord =
+                                                _model
+                                                    .listViewPagingController2!
+                                                    .itemList![listViewIndex];
+                                            return Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 12.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 4.0,
+                                                      color: Color(0x4D000000),
+                                                      offset: Offset(2.0, 4.0),
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          listViewGroceryItemRecord
+                                                              .photoUrl,
+                                                          width: 80.0,
+                                                          height: 80.0,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
                                                     ),
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    5.0,
-                                                                    0.0,
-                                                                    0.0,
+                                                                    8.0,
+                                                                    8.0,
+                                                                    4.0,
                                                                     0.0),
-                                                        child: Text(
-                                                          listViewRecipeListRecord
-                                                              .timeAllocated!
-                                                              .secondsSinceEpoch
-                                                              .toString(),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelMedium,
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Text(
+                                                              listViewGroceryItemRecord
+                                                                  .name,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Urbanist',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                              child:
+                                                                  AutoSizeText(
+                                                                'Quantity: ${listViewGroceryItemRecord.quantity.toString()}'
+                                                                    .maybeHandleOverflow(
+                                                                  maxChars: 70,
+                                                                  replacement:
+                                                                      '…',
+                                                                ),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .start,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium,
+                                                              ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
                                                     ),
@@ -496,292 +864,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  16.0,
-                                                                  4.0,
-                                                                  4.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  12.0,
                                                                   0.0),
-                                                      child: Text(
-                                                        listViewRecipeListRecord
-                                                            .typeOfMeal,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  FlutterFlowTheme.of(context).primaryBackground
-                                ],
-                                stops: [0.0, 0.9],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
-                              ),
-                            ),
-                            child: SingleChildScrollView(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 16.0, 16.0, 8.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        if (animationsMap[
-                                                'iconOnActionTriggerAnimation'] !=
-                                            null) {
-                                          await animationsMap[
-                                                  'iconOnActionTriggerAnimation']!
-                                              .controller
-                                              .forward(from: 0.0);
-                                        }
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          barrierColor: Color(0x9A000000),
-                                          context: context,
-                                          builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: OptionWidget(),
-                                              ),
-                                            );
-                                          },
-                                        ).then((value) => safeSetState(() {}));
-                                      },
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: 97.0,
-                                        decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 3.0,
-                                              color: Color(0x411D2429),
-                                              offset: Offset(0.0, 1.0),
-                                            )
-                                          ],
-                                          gradient: LinearGradient(
-                                            colors: [
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryBackground
-                                            ],
-                                            stops: [0.0, 0.9],
-                                            begin:
-                                                AlignmentDirectional(0.0, -1.0),
-                                            end: AlignmentDirectional(0, 1.0),
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.00, 0.00),
-                                          child: FaIcon(
-                                            FontAwesomeIcons.plus,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 32.0,
-                                          ).animateOnActionTrigger(
-                                            animationsMap[
-                                                'iconOnActionTriggerAnimation']!,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 12.0, 0.0, 0.0),
-                                    child:
-                                        StreamBuilder<List<GroceryItemRecord>>(
-                                      stream: queryGroceryItemRecord(
-                                        queryBuilder: (groceryItemRecord) =>
-                                            groceryItemRecord.where(
-                                          'user_link',
-                                          isEqualTo: currentUserReference,
-                                        ),
-                                      ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 30.0, 0.0, 0.0),
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child:
-                                                    CircularProgressIndicator(
-                                                  valueColor:
-                                                      AlwaysStoppedAnimation<
-                                                          Color>(
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<GroceryItemRecord>
-                                            listViewGroceryItemRecordList =
-                                            snapshot.data!;
-                                        return ListView.builder(
-                                          padding: EdgeInsets.zero,
-                                          primary: false,
-                                          shrinkWrap: true,
-                                          scrollDirection: Axis.vertical,
-                                          itemCount:
-                                              listViewGroceryItemRecordList
-                                                  .length,
-                                          itemBuilder:
-                                              (context, listViewIndex) {
-                                            final listViewGroceryItemRecord =
-                                                listViewGroceryItemRecordList[
-                                                    listViewIndex];
-                                            return Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 16.0, 8.0),
-                                              child: Container(
-                                                width: double.infinity,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      blurRadius: 3.0,
-                                                      color: Color(0x411D2429),
-                                                      offset: Offset(0.0, 1.0),
-                                                    )
-                                                  ],
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    1.0,
-                                                                    1.0,
-                                                                    1.0),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      6.0),
-                                                          child: Image.network(
-                                                            listViewGroceryItemRecord
-                                                                .photoUrl,
-                                                            width: 80.0,
-                                                            height: 80.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      8.0,
-                                                                      4.0,
-                                                                      0.0),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
-                                                                listViewGroceryItemRecord
-                                                                    .name,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineSmall,
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                child:
-                                                                    AutoSizeText(
-                                                                  'Quantity: ${listViewGroceryItemRecord.quantity.toString()}'
-                                                                      .maybeHandleOverflow(
-                                                                    maxChars:
-                                                                        70,
-                                                                    replacement:
-                                                                        '…',
-                                                                  ),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .start,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium,
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Column(
+                                                      child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         mainAxisAlignment:
@@ -843,24 +930,25 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           ),
                                                         ],
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'containerOnPageLoadAnimation']!),
                                             );
                                           },
-                                        );
-                                      },
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

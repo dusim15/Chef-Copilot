@@ -67,6 +67,12 @@ class FFAppState extends ChangeNotifier {
   void deleteApiKey() {
     secureStorage.delete(key: 'ff_apiKey');
   }
+
+  String _userInput = '';
+  String get userInput => _userInput;
+  set userInput(String _value) {
+    _userInput = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

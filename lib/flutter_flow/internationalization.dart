@@ -120,35 +120,8 @@ Locale createLocale(String language) => language.contains('_')
     : Locale(language);
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // recipePage
+  // recipeDetails
   {
-    'udh60zyp': {
-      'en': 'Wheat Pancakes',
-      'el': 'Τηγανίτες σιταριού',
-      'es': 'Tortitas De Trigo',
-      'fr': 'Crêpes De Blé',
-      'he': 'פנקייק חיטה',
-      'it': 'Pancake Di Grano',
-      'zh_Hans': '小麦煎饼',
-    },
-    'dz3mqkqn': {
-      'en': 'ProductTime',
-      'el': 'ProductTime',
-      'es': 'Hora del producto',
-      'fr': 'Heure du produit',
-      'he': 'ProductTime',
-      'it': 'ProdottoTime',
-      'zh_Hans': '产品时间',
-    },
-    'z3peqoot': {
-      'en': 'ProductPrice',
-      'el': 'Τιμή Προϊόντος',
-      'es': 'Precio del producto',
-      'fr': 'Prix ​​du produit',
-      'he': 'מחיר מוצר',
-      'it': 'Prezzo del prodotto',
-      'zh_Hans': '产品价格',
-    },
     'xhbucuyd': {
       'en': 'Instructions:',
       'el': 'Οδηγίες:',
@@ -158,22 +131,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Istruzioni:',
       'zh_Hans': '指示：',
     },
-    '4qt2s2zq': {
-      'en':
-          '1 cup of all-purpose flour\n2 tablespoons of sugar\n2 teaspoons of baking powder\n½ teaspoon of salt\n1 cup of milk\n2 tablespoons of unsalted butter, melted, or vegetable oil\n1 large egg\n1 tablespoon of vegetable oil for cooking\nAssorted toppings, such as butter, maple syrup, confectioners’ sugar, honey, jams, preserves, sweetened whipped cream, or chocolate syrup',
-      'el':
-          '1 φλιτζάνι αλεύρι για όλες τις χρήσεις\n2 κουταλιές της σούπας ζάχαρη\n2 κουταλάκια του γλυκού μπέικιν πάουντερ\n½ κουταλάκι του γλυκού αλάτι\n1 φλιτζάνι γάλα\n2 κουταλιές της σούπας ανάλατο βούτυρο, λιωμένο ή φυτικό λάδι\n1 μεγάλο αυγό\n1 κουταλιά της σούπας φυτικό λάδι για μαγείρεμα\nΔιάφορες επικαλύψεις, όπως βούτυρο, σιρόπι σφενδάμου, ζάχαρη ζαχαροπλαστικής, μέλι, μαρμελάδες, κονσέρβες, ζαχαρούχα σαντιγί ή σιρόπι σοκολάτας',
-      'es':
-          '1 taza de harina para todo uso\n2 cucharadas de azúcar\n2 cucharaditas de polvo para hornear\n½ cucharadita de sal\n1 taza de leche\n2 cucharadas de mantequilla sin sal, derretida o aceite vegetal\n1 huevo grande\n1 cucharada de aceite vegetal para cocinar\nAderezos variados, como mantequilla, jarabe de arce, azúcar glas, miel, mermeladas, conservas, crema batida endulzada o jarabe de chocolate.',
-      'fr':
-          '1 tasse de farine tout usage\n2 cuillères à soupe de sucre\n2 cuillères à café de levure chimique\n½ cuillère à café de sel\n1 tasse de lait\n2 cuillères à soupe de beurre non salé, fondu ou d\'huile végétale\n1 œuf large\n1 cuillère à soupe d\'huile végétale pour la cuisson\nGarnitures assorties, comme du beurre, du sirop d\'érable, du sucre glace, du miel, des confitures, des conserves, de la crème fouettée sucrée ou du sirop de chocolat',
-      'he':
-          '1 כוס קמח לכל מטרה\n2 כפות סוכר\n2 כפיות אבקת אפייה\n½ כפית מלח\n1 כוס חלב\n2 כפות חמאה לא מומלחת, מומסת או שמן צמחי\nביצה 1 גדולה\n1 כף שמן צמחי לבישול\nתוספות מגוונות, כגון חמאה, סירופ מייפל, סוכר קונדיטורים, דבש, ריבות, שימורים, קצפת ממותקת או סירופ שוקולד',
-      'it':
-          '1 tazza di farina per tutti gli usi\n2 cucchiai di zucchero\n2 cucchiaini di lievito\n½ cucchiaino di sale\n1 tazza di latte\n2 cucchiai di burro non salato, fuso o olio vegetale\n1 uovo grande\n1 cucchiaio di olio vegetale per cucinare\nCondimenti assortiti, come burro, sciroppo d\'acero, zucchero a velo, miele, marmellate, conserve, panna montata zuccherata o sciroppo di cioccolato',
-      'zh_Hans':
-          '1 杯通用面粉\n2汤匙糖\n2 茶匙发酵粉\n½ 茶匙盐\n1 杯牛奶\n2汤匙无盐黄油、融化的或植物油\n1个大鸡蛋\n1汤匙烹饪用植物油\n各种配料，例如黄油、枫糖浆、糖果糖、蜂蜜、果酱、蜜饯、加糖生奶油或巧克力糖浆',
-    },
     '79c9bdav': {
       'en': 'Ingredients:',
       'el': 'Συστατικά:',
@@ -182,22 +139,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'he': 'רכיבים:',
       'it': 'Ingredienti:',
       'zh_Hans': '原料：',
-    },
-    's35rkh93': {
-      'en':
-          'In a large bowl, whisk together the flour, sugar, baking powder, and salt.\n\nIn a small bowl, whisk together the milk, butter or oil, and egg.\n\nMake a well in the center of the flour mixture and pour in the milk mixture. Stir gently until just combined. Do not overmix. The batter should be slightly lumpy.\n\nLet the batter rest for 10 minutes.\n\nHeat a large skillet or griddle over medium-high heat and lightly grease with oil.\n\nDrop about ¼ cup of batter onto the skillet for each pancake. Cook until bubbles form on the surface, about 2 to 3 minutes. Flip and cook until golden on the other side, about 1 to 2 minutes more.\n\nTransfer the pancakes to a baking sheet and keep warm in a 200°F oven until ready to serve.\n\nRepeat with the remaining batter, adding more oil as needed.\n\nServe the pancakes with your favorite toppings and enjoy!',
-      'el':
-          'Σε ένα μεγάλο μπολ χτυπάμε το αλεύρι, τη ζάχαρη, το μπέικιν πάουντερ και το αλάτι.\n\nΣε ένα μικρό μπολ, χτυπήστε μαζί το γάλα, το βούτυρο ή το λάδι και το αυγό.\n\nΚάνουμε μια λακκούβα στο κέντρο του μείγματος του αλευριού και ρίχνουμε μέσα το μείγμα του γάλακτος. Ανακατεύουμε απαλά μέχρι να ενωθούν. Μην ανακατεύετε υπερβολικά. Το κουρκούτι πρέπει να είναι ελαφρώς σβολιασμένο.\n\nΑφήνουμε το κουρκούτι να ξεκουραστεί για 10 λεπτά.\n\nΖεσταίνουμε ένα μεγάλο τηγάνι ή τηγάνι σε μέτρια προς δυνατή φωτιά και αλείφουμε ελαφρά με λάδι.\n\nΡίξτε περίπου ¼ φλιτζάνι ζύμη στο τηγάνι για κάθε τηγανίτα. Μαγειρέψτε μέχρι να σχηματιστούν φυσαλίδες στην επιφάνεια, περίπου 2 με 3 λεπτά. Γυρίστε και μαγειρέψτε μέχρι να ροδίσει από την άλλη πλευρά, περίπου 1 με 2 λεπτά ακόμα.\n\nΜεταφέρετε τις τηγανίτες σε ένα ταψί και τις κρατάτε ζεστές σε φούρνο στους 200°F μέχρι να τις σερβίρετε.\n\nΕπαναλάβετε με το υπόλοιπο κουρκούτι, προσθέτοντας περισσότερο λάδι όσο χρειάζεται.\n\nΣερβίρετε τα pancakes με τα αγαπημένα σας toppings και απολαύστε!',
-      'es':
-          'En un tazón grande, mezcle la harina, el azúcar, el polvo para hornear y la sal.\n\nEn un tazón pequeño, mezcle la leche, la mantequilla o el aceite y el huevo.\n\nHaga un hueco en el centro de la mezcla de harina y vierta la mezcla de leche. Revuelva suavemente hasta que esté combinado. No haga sobre mezcla. La masa debe quedar ligeramente grumosa.\n\nDeja reposar la masa durante 10 minutos.\n\nCalienta una sartén grande o plancha a fuego medio-alto y engrasa ligeramente con aceite.\n\nColoque aproximadamente ¼ de taza de masa en la sartén para cada panqueque. Cocine hasta que se formen burbujas en la superficie, aproximadamente de 2 a 3 minutos. Voltee y cocine hasta que esté dorado por el otro lado, aproximadamente de 1 a 2 minutos más.\n\nTransfiera los panqueques a una bandeja para hornear y manténgalos calientes en un horno a 200 °F hasta que estén listos para servir.\n\nRepita con la masa restante y agregue más aceite según sea necesario.\n\n¡Sirve los panqueques con tus ingredientes favoritos y disfruta!',
-      'fr':
-          'Dans un grand bol, mélanger la farine, le sucre, la levure chimique et le sel.\n\nDans un petit bol, fouetter ensemble le lait, le beurre ou l\'huile et l\'œuf.\n\nFaites un puits au centre du mélange de farine et versez-y le mélange de lait. Remuer doucement jusqu\'à ce que tout soit bien combiné. Ne pas trop mélanger. La pâte doit être légèrement grumeleuse.\n\nLaissez reposer la pâte 10 minutes.\n\nChauffer une grande poêle ou une plaque chauffante à feu moyen-vif et graisser légèrement avec de l\'huile.\n\nDéposez environ ¼ tasse de pâte dans la poêle pour chaque crêpe. Cuire jusqu\'à ce que des bulles se forment à la surface, environ 2 à 3 minutes. Retourner et cuire jusqu\'à ce qu\'il soit doré de l\'autre côté, environ 1 à 2 minutes de plus.\n\nTransférer les crêpes sur une plaque à pâtisserie et réserver au chaud dans un four à 200°F jusqu\'au moment de servir.\n\nRépétez avec le reste de la pâte, en ajoutant plus d\'huile si nécessaire.\n\nServez les crêpes avec vos garnitures préférées et dégustez !',
-      'he':
-          'בקערה גדולה, טורפים יחד את הקמח, הסוכר, אבקת האפייה והמלח.\n\nבקערה קטנה, טורפים יחד את החלב, החמאה או השמן והביצה.\n\nיוצרים גומה במרכז תערובת הקמח ויוצקים פנימה את תערובת החלב. מערבבים בעדינות רק עד לאיחוד. אין לערבב יתר על המידה. הבלילה צריכה להיות מעט גושית.\n\nנותנים לבלילה לנוח 10 דקות.\n\nמחממים מחבת גדולה או פסים על אש בינונית-גבוהה ומשמנים קלות בשמן.\n\nזרוק כ-¼ כוס הבלילה על המחבת עבור כל פנקייק. מבשלים עד שנוצרות בועות על פני השטח, בערך 2 עד 3 דקות. הופכים ומבשלים עד להזהבה בצד השני, בערך 1 עד 2 דקות נוספות.\n\nמעבירים את הלביבות לתבנית עם נייר אפייה ושומרים חמים בתנור בחום של 200 מעלות עד להגשה.\n\nחוזרים על הפעולה עם הבלילה שנותרה, מוסיפים עוד שמן לפי הצורך.\n\nהגישו את הפנקייקים עם התוספות האהובות עליכם ותהנו!',
-      'it':
-          'In una ciotola capiente, sbatti insieme la farina, lo zucchero, il lievito e il sale.\n\nIn una piccola ciotola, sbatti insieme il latte, il burro o l\'olio e l\'uovo.\n\nFormate una fontana al centro del composto di farina e versate il composto di latte. Mescolare delicatamente fino a quando non sarà appena combinato. Non mescolare eccessivamente. La pastella dovrebbe risultare leggermente grumosa.\n\nLasciare riposare la pastella per 10 minuti.\n\nScaldare una padella grande o una piastra a fuoco medio-alto e ungerla leggermente con olio.\n\nMetti circa ¼ di tazza di pastella nella padella per ogni pancake. Cuocere finché non si formano delle bolle in superficie, circa 2 o 3 minuti. Capovolgi e cuoci fino a doratura sull\'altro lato, circa 1 o 2 minuti in più.\n\nTrasferisci i pancake su una teglia e mantienili al caldo in un forno a 200 ° F fino al momento di servire.\n\nRipetere l\'operazione con la pastella rimanente, aggiungendo altro olio se necessario.\n\nServite i pancake con i vostri condimenti preferiti e buon appetito!',
-      'zh_Hans':
-          '在一个大碗中，将面粉、糖、泡打粉和盐搅拌在一起。\n\n在一个小碗中，将牛奶、黄油或油和鸡蛋搅拌在一起。\n\n在面粉混合物的中心挖一个洞，倒入牛奶混合物。轻轻搅拌直至完全混合。不要过度混合。面糊应该有点块状。\n\n让面糊静置 10 分钟。\n\n用中高火加热大煎锅或煎锅，并涂上少许油。\n\n将约 ¼ 杯面糊放入煎锅中，制作每个煎饼。煮约2至3分钟，直至表面出现气泡。翻转并煮至另一面呈金黄色，再煮约 1 至 2 分钟。\n\n将薄煎饼转移到烤盘上，并在 200°F 的烤箱中保温直至准备好上桌。\n\n对剩余的面糊重复上述步骤，根据需要添加更多的油。\n\n将煎饼配上您最喜欢的配料即可享用！',
     },
     'a4ikx5qk': {
       'en': 'Home',
@@ -211,7 +152,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // CreateRecipe
   {
-    'aosvo8j3': {
+    'syuv94xl': {
       'en': 'Find New Recipies',
       'el': 'Βρείτε νέες συνταγές',
       'es': 'Encuentra nuevas recetas',
@@ -220,7 +161,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Trova nuove ricette',
       'zh_Hans': '寻找新食谱',
     },
-    'qvtmpdlw': {
+    'jpl4h78u': {
       'en':
           'Provide a list of ingredients and we\'ll tell you what you can wake with them!',
       'el':
@@ -234,7 +175,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Fornisci un elenco di ingredienti e ti diremo cosa puoi svegliare con loro!',
       'zh_Hans': '提供成分清单，我们会告诉您可以用它们唤醒什么！',
     },
-    'w3w2p5az': {
+    'kj6dh87a': {
       'en': 'Enter the ingredients you have on hand',
       'el': 'Εισαγάγετε τα υλικά που έχετε στη διάθεσή σας',
       'es': 'Introduce los ingredientes que tienes a mano',
@@ -243,7 +184,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Inserisci gli ingredienti che hai a portata di mano',
       'zh_Hans': '输入您现有的成分',
     },
-    '2md05yfn': {
+    '6ojwfa33': {
       'en': 'Ingredients...',
       'el': 'Συστατικά...',
       'es': 'Ingredientes...',
@@ -252,7 +193,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Ingredienti...',
       'zh_Hans': '原料...',
     },
-    'r2x6x79t': {
+    'cpw9sv28': {
       'en': 'Enter the condiments, seasoning, and sauces you have on hand.',
       'el':
           'Εισαγάγετε τα καρυκεύματα, τα καρυκεύματα και τις σάλτσες που έχετε στη διάθεσή σας.',
@@ -264,7 +205,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Inserisci i condimenti, i condimenti e le salse che hai a portata di mano.',
       'zh_Hans': '输入您手头的调味品、调料和酱汁。',
     },
-    'cdfr8sl5': {
+    '2tvjebpq': {
       'en': 'Condiments, seasoning and sauces...',
       'el': 'Καρυκεύματα, καρυκεύματα και σάλτσες...',
       'es': 'Condimentos, aliños y salsas...',
@@ -273,7 +214,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Condimenti, condimenti e salse...',
       'zh_Hans': '调味品、调料和酱料...',
     },
-    'j9g4tgv0': {
+    'zzl2s61q': {
       'en': 'Available leftovers (Optional)',
       'el': 'Διαθέσιμα υπολείμματα (Προαιρετικά)',
       'es': 'Sobras disponibles (Opcional)',
@@ -282,7 +223,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Avanzi disponibili (facoltativo)',
       'zh_Hans': '可用的剩菜（可选）',
     },
-    'w302ckd9': {
+    'b9yqvex0': {
       'en': 'Available leftovers (Optional)...',
       'el': 'Διαθέσιμα υπολείμματα (Προαιρετικά)...',
       'es': 'Sobras disponibles (Opcional)...',
@@ -291,7 +232,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Avanzi disponibili (facoltativo)...',
       'zh_Hans': '可用的剩菜（可选）...',
     },
-    '9box9vhz': {
+    'mf32wa1p': {
       'en': 'Type of Meal',
       'el': 'Είδος Γεύματος',
       'es': 'Tipo de comida',
@@ -300,7 +241,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Tipo di pasto',
       'zh_Hans': '膳食类型',
     },
-    'uc5kkya7': {
+    '5fcyzeic': {
       'en': 'Please select what time of day you want the meal',
       'el': 'Επιλέξτε ποια ώρα της ημέρας θέλετε το γεύμα',
       'es': 'Por favor seleccione a qué hora del día desea la comida.',
@@ -310,7 +251,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Seleziona l\'ora del giorno in cui desideri il pasto',
       'zh_Hans': '请选择您想要用餐的时间',
     },
-    '2sekcuzu': {
+    '9h23lnus': {
       'en': 'Breakfast',
       'el': 'ΠΡΩΙΝΟ ΓΕΥΜΑ',
       'es': 'Desayuno',
@@ -319,7 +260,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Colazione',
       'zh_Hans': '早餐',
     },
-    'r2nlgwxf': {
+    '05nkch2d': {
       'en': 'Brunch',
       'el': 'Μεσημεριανό',
       'es': 'Desalmuerzo',
@@ -328,7 +269,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Brunch',
       'zh_Hans': '早午餐',
     },
-    'amhlyrkb': {
+    'j0c9kbi9': {
       'en': 'Lunch',
       'el': 'Μεσημεριανό',
       'es': 'Almuerzo',
@@ -337,7 +278,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Pranzo',
       'zh_Hans': '午餐',
     },
-    'do92tfg0': {
+    'uqxnnwmb': {
       'en': 'Dinner',
       'el': 'Βραδινό',
       'es': 'Cena',
@@ -346,7 +287,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Cena',
       'zh_Hans': '晚餐',
     },
-    'kb5cep1z': {
+    'zisnwh5t': {
       'en': 'Available Time',
       'el': 'Διαθέσιμος χρόνος',
       'es': 'Tiempo disponible',
@@ -355,7 +296,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Tempo disponibile',
       'zh_Hans': '有空时间',
     },
-    'hi7iwckb': {
+    '4mvwvisj': {
       'en': 'Please select how much  time you have to make this meal',
       'el': 'Επιλέξτε πόσο χρόνο έχετε για να φτιάξετε αυτό το γεύμα',
       'es':
@@ -366,7 +307,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Seleziona quanto tempo hai per preparare questo pasto',
       'zh_Hans': '请选择您需要多长时间来做这顿饭',
     },
-    'eu1h115a': {
+    'm65wwtqi': {
       'en': '5 min',
       'el': '5 λεπτά',
       'es': '5 minutos',
@@ -375,7 +316,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '5 minuti',
       'zh_Hans': '5分钟',
     },
-    '70p0wl0p': {
+    '02p9tzwe': {
       'en': '15 min',
       'el': '15 λεπτά',
       'es': '15 minutos',
@@ -384,7 +325,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '15 minuti',
       'zh_Hans': '15分钟',
     },
-    '94sl5qjg': {
+    '6aoqnp06': {
       'en': '30 min',
       'el': '30 λεπτά',
       'es': '30 minutos',
@@ -393,7 +334,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '30 minuti',
       'zh_Hans': '30分钟',
     },
-    'mytzw9ng': {
+    'rdv8o3te': {
       'en': '1 hour',
       'el': '1 ώρα',
       'es': '1 hora',
@@ -402,7 +343,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '1 ora',
       'zh_Hans': '1小时',
     },
-    'p7hq20gh': {
+    'cpkrgq1x': {
       'en': '2 hours',
       'el': '2 ώρες',
       'es': '2 horas',
@@ -411,7 +352,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '2 ore',
       'zh_Hans': '2小时',
     },
-    'jpyobpnv': {
+    'vij7jfs2': {
       'en': 'infinite',
       'el': 'άπειρος',
       'es': 'infinito',
@@ -420,7 +361,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'infinito',
       'zh_Hans': '无穷',
     },
-    '4dk7vxu3': {
+    '8o4d9m1u': {
       'en': 'Generate Recipies',
       'el': 'Δημιουργία συνταγών',
       'es': 'Generar recetas',
@@ -429,7 +370,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Genera ricette',
       'zh_Hans': '生成食谱',
     },
-    '1t9l4nbb': {
+    'f8n068di': {
       'en': 'Chef Copilot',
       'el': 'Σεφ Copilot',
       'es': 'Chef copiloto',
@@ -870,264 +811,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '家',
     },
   },
-  // HomePage
-  {
-    '3byzw7t1': {
-      'en': 'Chef Copilot',
-      'el': 'Σεφ Copilot',
-      'es': 'Chef copiloto',
-      'fr': 'Chef copilote',
-      'he': 'שף Copilot',
-      'it': 'Cuoco Copilota',
-      'zh_Hans': '副驾驶厨师',
-    },
-    't0j5ilae': {
-      'en': 'Recipes',
-      'el': 'Συνταγές',
-      'es': 'Recetas',
-      'fr': 'Recettes',
-      'he': 'מתכונים',
-      'it': 'Ricette',
-      'zh_Hans': '食谱',
-    },
-    'smjtjrud': {
-      'en': 'Inventory',
-      'el': 'Καταγραφή εμπορευμάτων',
-      'es': 'Inventario',
-      'fr': 'Inventaire',
-      'he': 'מְלַאי',
-      'it': 'Inventario',
-      'zh_Hans': '存货',
-    },
-    '29jgia0v': {
-      'en': 'Title',
-      'el': 'Τίτλος',
-      'es': 'Título',
-      'fr': 'Titre',
-      'he': 'כותרת',
-      'it': 'Titolo',
-      'zh_Hans': '标题',
-    },
-    '1fp9839p': {
-      'en': 'Subtext',
-      'el': 'Υποκείμενο',
-      'es': 'Trasfondo',
-      'fr': 'Sous-texte',
-      'he': 'סאבטקסט',
-      'it': 'Sottotesto',
-      'zh_Hans': '潜台词',
-    },
-    '2xm16o17': {
-      'en': '\$11.00',
-      'el': '11,00 \$',
-      'es': '\$11.00',
-      'fr': '11,00 \$',
-      'he': '\$11.00',
-      'it': '\$ 11,00',
-      'zh_Hans': '11.00 美元',
-    },
-    'm71yuliy': {
-      'en': 'Title',
-      'el': 'Τίτλος',
-      'es': 'Título',
-      'fr': 'Titre',
-      'he': 'כותרת',
-      'it': 'Titolo',
-      'zh_Hans': '标题',
-    },
-    'm8mzxvvl': {
-      'en': 'Subtext',
-      'el': 'Υποκείμενο',
-      'es': 'Trasfondo',
-      'fr': 'Sous-texte',
-      'he': 'סאבטקסט',
-      'it': 'Sottotesto',
-      'zh_Hans': '潜台词',
-    },
-    'ovfolrx6': {
-      'en': '\$11.00',
-      'el': '11,00 \$',
-      'es': '\$11.00',
-      'fr': '11,00 \$',
-      'he': '\$11.00',
-      'it': '\$ 11,00',
-      'zh_Hans': '11.00 美元',
-    },
-    'jel2es31': {
-      'en': 'Title',
-      'el': 'Τίτλος',
-      'es': 'Título',
-      'fr': 'Titre',
-      'he': 'כותרת',
-      'it': 'Titolo',
-      'zh_Hans': '标题',
-    },
-    'fuskduy5': {
-      'en': 'Subtext',
-      'el': 'Υποκείμενο',
-      'es': 'Trasfondo',
-      'fr': 'Sous-texte',
-      'he': 'סאבטקסט',
-      'it': 'Sottotesto',
-      'zh_Hans': '潜台词',
-    },
-    's426ux8e': {
-      'en': '\$11.00',
-      'el': '11,00 \$',
-      'es': '\$11.00',
-      'fr': '11,00 \$',
-      'he': '\$11.00',
-      'it': '\$ 11,00',
-      'zh_Hans': '11.00 美元',
-    },
-    'm65ssgm5': {
-      'en': 'Title',
-      'el': 'Τίτλος',
-      'es': 'Título',
-      'fr': 'Titre',
-      'he': 'כותרת',
-      'it': 'Titolo',
-      'zh_Hans': '标题',
-    },
-    '06ubw82x': {
-      'en': 'Subtext',
-      'el': 'Υποκείμενο',
-      'es': 'Trasfondo',
-      'fr': 'Sous-texte',
-      'he': 'סאבטקסט',
-      'it': 'Sottotesto',
-      'zh_Hans': '潜台词',
-    },
-    'e5u9khnp': {
-      'en': '\$11.00',
-      'el': '11,00 \$',
-      'es': '\$11.00',
-      'fr': '11,00 \$',
-      'he': '\$11.00',
-      'it': '\$ 11,00',
-      'zh_Hans': '11.00 美元',
-    },
-    '0113xoyc': {
-      'en': 'Title',
-      'el': 'Τίτλος',
-      'es': 'Título',
-      'fr': 'Titre',
-      'he': 'כותרת',
-      'it': 'Titolo',
-      'zh_Hans': '标题',
-    },
-    '5zybi7rq': {
-      'en': 'Subtext',
-      'el': 'Υποκείμενο',
-      'es': 'Trasfondo',
-      'fr': 'Sous-texte',
-      'he': 'סאבטקסט',
-      'it': 'Sottotesto',
-      'zh_Hans': '潜台词',
-    },
-    'ubvde3nz': {
-      'en': '\$11.00',
-      'el': '11,00 \$',
-      'es': '\$11.00',
-      'fr': '11,00 \$',
-      'he': '\$11.00',
-      'it': '\$ 11,00',
-      'zh_Hans': '11.00 美元',
-    },
-    'pkm284jc': {
-      'en': 'Title',
-      'el': 'Τίτλος',
-      'es': 'Título',
-      'fr': 'Titre',
-      'he': 'כותרת',
-      'it': 'Titolo',
-      'zh_Hans': '标题',
-    },
-    'sllg5clj': {
-      'en': 'Subtext',
-      'el': 'Υποκείμενο',
-      'es': 'Trasfondo',
-      'fr': 'Sous-texte',
-      'he': 'סאבטקסט',
-      'it': 'Sottotesto',
-      'zh_Hans': '潜台词',
-    },
-    '7y2un2xy': {
-      'en': '\$11.00',
-      'el': '11,00 \$',
-      'es': '\$11.00',
-      'fr': '11,00 \$',
-      'he': '\$11.00',
-      'it': '\$ 11,00',
-      'zh_Hans': '11.00 美元',
-    },
-    'z7q318wm': {
-      'en': 'Chef Copilot',
-      'el': 'Σεφ Copilot',
-      'es': 'Chef copiloto',
-      'fr': 'Chef copilote',
-      'he': 'שף Copilot',
-      'it': 'Cuoco Copilota',
-      'zh_Hans': '副驾驶厨师',
-    },
-    '96tbeqpo': {
-      'en': 'Profile',
-      'el': 'Προφίλ',
-      'es': 'Perfil',
-      'fr': 'Profil',
-      'he': 'פּרוֹפִיל',
-      'it': 'Profilo',
-      'zh_Hans': '轮廓',
-    },
-    'ykwudah9': {
-      'en': 'Ask Copilot',
-      'el': 'Ρωτήστε τον Copilot',
-      'es': 'Preguntar al copiloto',
-      'fr': 'Demandez au copilote',
-      'he': 'תשאל קוטילוט',
-      'it': 'Chiedi al copilota',
-      'zh_Hans': '询问副驾驶',
-    },
-    'lnhxxh3t': {
-      'en': 'Settings',
-      'el': 'Ρυθμίσεις',
-      'es': 'Ajustes',
-      'fr': 'Paramètres',
-      'he': 'הגדרות',
-      'it': 'Impostazioni',
-      'zh_Hans': '设置',
-    },
-    'iqmixj4b': {
-      'en': 'Log Out',
-      'el': 'Αποσύνδεση',
-      'es': 'Cerrar sesión',
-      'fr': 'Se déconnecter',
-      'he': 'להתנתק',
-      'it': 'Disconnettersi',
-      'zh_Hans': '登出',
-    },
-    's0row5j0': {
-      'en': 'Home',
-      'el': 'Σπίτι',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'he': 'בית',
-      'it': 'Casa',
-      'zh_Hans': '家',
-    },
-  },
   // CreateRecipeCopy
   {
-    'gy9sq5xl': {
-      'en': 'Chef Copilot',
-      'el': 'Σεφ Copilot',
-      'es': 'Chef copiloto',
-      'fr': 'Chef copilote',
-      'he': 'שף Copilot',
-      'it': 'Cuoco Copilota',
-      'zh_Hans': '副驾驶厨师',
-    },
-    'wcx9x69a': {
+    '1776dyhc': {
       'en': 'Find New Recipies',
       'el': 'Βρείτε νέες συνταγές',
       'es': 'Encuentra nuevas recetas',
@@ -1136,7 +822,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Trova nuove ricette',
       'zh_Hans': '寻找新食谱',
     },
-    'yc09jw4b': {
+    '0waxypi3': {
       'en':
           'Provide a list of ingredients and we\'ll tell you what you can wake with them!',
       'el':
@@ -1150,7 +836,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Fornisci un elenco di ingredienti e ti diremo cosa puoi svegliare con loro!',
       'zh_Hans': '提供成分清单，我们会告诉您可以用它们唤醒什么！',
     },
-    'kn6gnxfe': {
+    '7wpydnn7': {
       'en': 'Enter the ingredients you have on hand',
       'el': 'Εισαγάγετε τα υλικά που έχετε στη διάθεσή σας',
       'es': 'Introduce los ingredientes que tienes a mano',
@@ -1159,7 +845,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Inserisci gli ingredienti che hai a portata di mano',
       'zh_Hans': '输入您现有的成分',
     },
-    'xkhh2aqi': {
+    'ww0fpm9f': {
       'en': 'Ingredients...',
       'el': 'Συστατικά...',
       'es': 'Ingredientes...',
@@ -1168,7 +854,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Ingredienti...',
       'zh_Hans': '原料...',
     },
-    '3lg39rcu': {
+    'kwjelof4': {
       'en': 'Enter the condiments, seasoning, and sauces you have on hand.',
       'el':
           'Εισαγάγετε τα καρυκεύματα, τα καρυκεύματα και τις σάλτσες που έχετε στη διάθεσή σας.',
@@ -1180,7 +866,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Inserisci i condimenti, i condimenti e le salse che hai a portata di mano.',
       'zh_Hans': '输入您手头的调味品、调料和酱汁。',
     },
-    'sr0aaoz1': {
+    '33nurh1d': {
       'en': 'Condiments, seasoning and sauces...',
       'el': 'Καρυκεύματα, καρυκεύματα και σάλτσες...',
       'es': 'Condimentos, aliños y salsas...',
@@ -1189,7 +875,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Condimenti, condimenti e salse...',
       'zh_Hans': '调味品、调料和酱料...',
     },
-    '1zfr9wl7': {
+    '78mf053u': {
       'en': 'Available leftovers (Optional)',
       'el': 'Διαθέσιμα υπολείμματα (Προαιρετικά)',
       'es': 'Sobras disponibles (Opcional)',
@@ -1198,7 +884,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Avanzi disponibili (facoltativo)',
       'zh_Hans': '可用的剩菜（可选）',
     },
-    'twyn6tq8': {
+    'soieokzo': {
       'en': 'Available leftovers (Optional)...',
       'el': 'Διαθέσιμα υπολείμματα (Προαιρετικά)...',
       'es': 'Sobras disponibles (Opcional)...',
@@ -1207,7 +893,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Avanzi disponibili (facoltativo)...',
       'zh_Hans': '可用的剩菜（可选）...',
     },
-    'rfcztjx1': {
+    '9h28p7nf': {
       'en': 'Type of Meal',
       'el': 'Είδος Γεύματος',
       'es': 'Tipo de comida',
@@ -1216,7 +902,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Tipo di pasto',
       'zh_Hans': '膳食类型',
     },
-    'h356zg9k': {
+    'rnalmn45': {
       'en': 'Please select what time of day you want the meal',
       'el': 'Επιλέξτε ποια ώρα της ημέρας θέλετε το γεύμα',
       'es': 'Por favor seleccione a qué hora del día desea la comida.',
@@ -1226,7 +912,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Seleziona l\'ora del giorno in cui desideri il pasto',
       'zh_Hans': '请选择您想要用餐的时间',
     },
-    'tey5bxpw': {
+    '23h5hooq': {
       'en': 'Breakfast',
       'el': 'ΠΡΩΙΝΟ ΓΕΥΜΑ',
       'es': 'Desayuno',
@@ -1235,7 +921,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Colazione',
       'zh_Hans': '早餐',
     },
-    'n3qjwlhz': {
+    '7md0ygf7': {
       'en': 'Brunch',
       'el': 'Μεσημεριανό',
       'es': 'Desalmuerzo',
@@ -1244,7 +930,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Brunch',
       'zh_Hans': '早午餐',
     },
-    'ts13adfg': {
+    '01qy93sy': {
       'en': 'Lunch',
       'el': 'Μεσημεριανό',
       'es': 'Almuerzo',
@@ -1253,7 +939,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Pranzo',
       'zh_Hans': '午餐',
     },
-    'ibzhtnlo': {
+    '65bpegn2': {
       'en': 'Dinner',
       'el': 'Βραδινό',
       'es': 'Cena',
@@ -1262,7 +948,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Cena',
       'zh_Hans': '晚餐',
     },
-    '3ydte78f': {
+    '3i4c9jmt': {
       'en': 'Available Time',
       'el': 'Διαθέσιμος χρόνος',
       'es': 'Tiempo disponible',
@@ -1271,7 +957,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Tempo disponibile',
       'zh_Hans': '有空时间',
     },
-    's837bdz9': {
+    '8zr4m0kr': {
       'en': 'Please select how much  time you have to make this meal',
       'el': 'Επιλέξτε πόσο χρόνο έχετε για να φτιάξετε αυτό το γεύμα',
       'es':
@@ -1282,7 +968,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Seleziona quanto tempo hai per preparare questo pasto',
       'zh_Hans': '请选择您需要多长时间来做这顿饭',
     },
-    'i6drt0c4': {
+    '8gpv2336': {
       'en': '5 min',
       'el': '5 λεπτά',
       'es': '5 minutos',
@@ -1291,7 +977,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '5 minuti',
       'zh_Hans': '5分钟',
     },
-    'yzkelw28': {
+    'mbittml9': {
       'en': '15 min',
       'el': '15 λεπτά',
       'es': '15 minutos',
@@ -1300,7 +986,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '15 minuti',
       'zh_Hans': '15分钟',
     },
-    'medi4uu4': {
+    '5970mgpd': {
       'en': '30 min',
       'el': '30 λεπτά',
       'es': '30 minutos',
@@ -1309,7 +995,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '30 minuti',
       'zh_Hans': '30分钟',
     },
-    'uqx41994': {
+    'kfvr4ni9': {
       'en': '1 hour',
       'el': '1 ώρα',
       'es': '1 hora',
@@ -1318,7 +1004,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '1 ora',
       'zh_Hans': '1小时',
     },
-    '3q698n8m': {
+    'dsiyixy7': {
       'en': '2 hours',
       'el': '2 ώρες',
       'es': '2 horas',
@@ -1327,7 +1013,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '2 ore',
       'zh_Hans': '2小时',
     },
-    '33gi4lb6': {
+    '9nn30dgr': {
       'en': 'infinite',
       'el': 'άπειρος',
       'es': 'infinito',
@@ -1336,7 +1022,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'infinito',
       'zh_Hans': '无穷',
     },
-    'dj7b166f': {
+    '9vpvp0sr': {
       'en': 'Generate Recipies',
       'el': 'Δημιουργία συνταγών',
       'es': 'Generar recetas',
@@ -1344,6 +1030,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'he': 'צור מתכונים',
       'it': 'Genera ricette',
       'zh_Hans': '生成食谱',
+    },
+    'x4nljjs6': {
+      'en': 'Chef Copilot',
+      'el': 'Σεφ Copilot',
+      'es': 'Chef copiloto',
+      'fr': 'Chef copilote',
+      'he': 'שף Copilot',
+      'it': 'Cuoco Copilota',
+      'zh_Hans': '副驾驶厨师',
     },
     'tmqjionz': {
       'en': 'Menu',
@@ -1421,7 +1116,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '语境',
     },
     'z0jvh04n': {
-      'en': 'Does it still look good or its spoilt?',
+      'en': 'Does it look good or its spoilt?',
       'el': 'Εξακολουθεί να φαίνεται καλό ή είναι χαλασμένο;',
       'es': '¿Aún se ve bien o está estropeado?',
       'fr': 'Est-ce qu\'il a toujours l\'air bien ou est-il gâté ?',
@@ -1447,14 +1142,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Chiedi informazioni sul prodotto',
       'zh_Hans': '询问产品',
     },
-    '6qbrmssz': {
-      'en': 'Ask about a product you have',
-      'el': 'Ρωτήστε για ένα προϊόν που έχετε',
-      'es': 'Pregunta por algún producto que tengas',
-      'fr': 'Renseignez-vous sur un produit que vous possédez',
-      'he': 'שאל על מוצר שיש לך',
-      'it': 'Chiedi informazioni su un prodotto che possiedi',
-      'zh_Hans': '询问您拥有的产品',
+    'aix90usm': {
+      'en': 'Chef Copilot',
+      'el': 'Σεφ Copilot',
+      'es': 'Chef copiloto',
+      'fr': 'Chef copilote',
+      'he': 'שף Copilot',
+      'it': 'Cuoco Copilota',
+      'zh_Hans': '副驾驶厨师',
     },
     '63q4jft6': {
       'en': 'Home',
@@ -1498,7 +1193,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // settings
   {
-    'csd0hnif': {
+    'tuf7u61b': {
       'en': 'Settings Page',
       'el': '',
       'es': '',
@@ -1507,7 +1202,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    'o03ur49r': {
+    'hd048vcb': {
       'en': 'My Subscription',
       'el': '',
       'es': '',
@@ -1516,7 +1211,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    '8kafvl9h': {
+    'yi0oem2q': {
       'en': 'Getting Started',
       'el': '',
       'es': '',
@@ -1525,7 +1220,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    'mtlehkdo': {
+    'c7sitweq': {
       'en': 'About Us',
       'el': '',
       'es': '',
@@ -1534,7 +1229,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    '6vuvz4zb': {
+    '6tw67qoc': {
       'en': 'Help',
       'el': '',
       'es': '',
@@ -1543,7 +1238,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    'dp3spvav': {
+    'cawk0eg9': {
       'en': 'Privacy Policy',
       'el': '',
       'es': '',
@@ -1552,7 +1247,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    '6ohd1h60': {
+    'nzfoc30r': {
       'en': 'Terms & Conditions',
       'el': '',
       'es': '',
@@ -1561,7 +1256,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    'ue86jpkp': {
+    '0ish1v7n': {
+      'en': 'Select Language',
+      'el': '',
+      'es': '',
+      'fr': '',
+      'he': '',
+      'it': '',
+      'zh_Hans': '',
+    },
+    'd299ize5': {
+      'en':
+          'The selected language determines the language the Copilot would respond with; both voice and script.',
+      'el': '',
+      'es': '',
+      'fr': '',
+      'he': '',
+      'it': '',
+      'zh_Hans': '',
+    },
+    '0vvlstkk': {
       'en': 'Follow us on',
       'el': '',
       'es': '',
@@ -1570,7 +1284,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    'hrklg4eo': {
+    'ixnl31jo': {
       'en': 'App Versions',
       'el': '',
       'es': '',
@@ -1579,7 +1293,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    '4u035r7s': {
+    'zqfpamt4': {
       'en': 'v0.0.1',
       'el': '',
       'es': '',
@@ -1588,7 +1302,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    'ebt2j7cq': {
+    'fj6xlu8w': {
       'en': 'Log Out',
       'el': '',
       'es': '',
@@ -1597,7 +1311,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    'zstomggv': {
+    '9czda96d': {
       'en': 'Home',
       'el': '',
       'es': '',
@@ -1605,6 +1319,111 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'he': '',
       'it': '',
       'zh_Hans': '',
+    },
+  },
+  // HomePage
+  {
+    '75ky3amz': {
+      'en': 'Chef Copilot',
+      'el': 'Σεφ Copilot',
+      'es': 'Chef copiloto',
+      'fr': 'Chef copilote',
+      'he': 'שף Copilot',
+      'it': 'Cuoco Copilota',
+      'zh_Hans': '副驾驶厨师',
+    },
+    'j64d6xwh': {
+      'en': 'Recipies',
+      'el': '',
+      'es': '',
+      'fr': '',
+      'he': '',
+      'it': '',
+      'zh_Hans': '',
+    },
+    'kzr0fohl': {
+      'en': 'Inventory',
+      'el': '',
+      'es': '',
+      'fr': '',
+      'he': '',
+      'it': '',
+      'zh_Hans': '',
+    },
+    '8xqfy9h6': {
+      'en': 'Chef Copilot',
+      'el': 'Σεφ Copilot',
+      'es': 'Chef copiloto',
+      'fr': 'Chef copilote',
+      'he': 'שף Copilot',
+      'it': 'Cuoco Copilota',
+      'zh_Hans': '副驾驶厨师',
+    },
+    '7oa1y7bh': {
+      'en': 'Talk to Copilot',
+      'el': '',
+      'es': '',
+      'fr': '',
+      'he': '',
+      'it': '',
+      'zh_Hans': '',
+    },
+    '293jyrru': {
+      'en': 'Settings',
+      'el': '',
+      'es': '',
+      'fr': '',
+      'he': '',
+      'it': '',
+      'zh_Hans': '',
+    },
+    'p11fhk6m': {
+      'en': 'About me',
+      'el': '',
+      'es': '',
+      'fr': '',
+      'he': '',
+      'it': '',
+      'zh_Hans': '',
+    },
+    'm4s4m45h': {
+      'en': 'Home',
+      'el': '',
+      'es': '',
+      'fr': '',
+      'he': '',
+      'it': '',
+      'zh_Hans': '',
+    },
+  },
+  // recipePage
+  {
+    'fbxqgqk4': {
+      'en': 'Instructions:',
+      'el': 'Οδηγίες:',
+      'es': 'Instrucciones:',
+      'fr': 'Instructions:',
+      'he': 'הוראות:',
+      'it': 'Istruzioni:',
+      'zh_Hans': '指示：',
+    },
+    'qn5hkmn1': {
+      'en': 'Ingredients:',
+      'el': 'Συστατικά:',
+      'es': 'Ingredientes:',
+      'fr': 'Ingrédients:',
+      'he': 'רכיבים:',
+      'it': 'Ingredienti:',
+      'zh_Hans': '原料：',
+    },
+    'bdrx4cu2': {
+      'en': 'Home',
+      'el': 'Σπίτι',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'he': 'בית',
+      'it': 'Casa',
+      'zh_Hans': '家',
     },
   },
   // option
@@ -1627,17 +1446,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Nome dell\'elemento',
       'zh_Hans': '项目名',
     },
-    'bp5btcdx': {
+    '4o8l57ry': {
       'en': 'Quantity',
-      'el': 'Ποσότητα',
-      'es': 'Cantidad',
-      'fr': 'Quantité',
-      'he': 'כַּמוּת',
-      'it': 'Quantità',
-      'zh_Hans': '数量',
+      'el': '',
+      'es': '',
+      'fr': '',
+      'he': '',
+      'it': '',
+      'zh_Hans': '',
     },
     'n7qtjf2l': {
       'en': 'Price',
+      'el': 'Τιμή',
+      'es': 'Precio',
+      'fr': 'Prix',
+      'he': 'מחיר',
+      'it': 'Prezzo',
+      'zh_Hans': '价格',
+    },
+    'vqxny1fd': {
+      'en': 'Category',
       'el': 'Τιμή',
       'es': 'Precio',
       'fr': 'Prix',

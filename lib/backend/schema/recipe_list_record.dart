@@ -16,11 +16,6 @@ class RecipeListRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "instructions" field.
-  List<String>? _instructions;
-  List<String> get instructions => _instructions ?? const [];
-  bool hasInstructions() => _instructions != null;
-
   // "name" field.
   String? _name;
   String get name => _name ?? '';
@@ -41,12 +36,23 @@ class RecipeListRecord extends FirestoreRecord {
   String get imageUrl => _imageUrl ?? '';
   bool hasImageUrl() => _imageUrl != null;
 
+  // "recipe" field.
+  String? _recipe;
+  String get recipe => _recipe ?? '';
+  bool hasRecipe() => _recipe != null;
+
+  // "instructions" field.
+  String? _instructions;
+  String get instructions => _instructions ?? '';
+  bool hasInstructions() => _instructions != null;
+
   void _initializeFields() {
-    _instructions = getDataList(snapshotData['instructions']);
     _name = snapshotData['name'] as String?;
     _timeAllocated = snapshotData['timeAllocated'] as DateTime?;
     _typeOfMeal = snapshotData['typeOfMeal'] as String?;
     _imageUrl = snapshotData['image_url'] as String?;
+    _recipe = snapshotData['recipe'] as String?;
+    _instructions = snapshotData['instructions'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -88,6 +94,8 @@ Map<String, dynamic> createRecipeListRecordData({
   DateTime? timeAllocated,
   String? typeOfMeal,
   String? imageUrl,
+  String? recipe,
+  String? instructions,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -95,6 +103,8 @@ Map<String, dynamic> createRecipeListRecordData({
       'timeAllocated': timeAllocated,
       'typeOfMeal': typeOfMeal,
       'image_url': imageUrl,
+      'recipe': recipe,
+      'instructions': instructions,
     }.withoutNulls,
   );
 
@@ -106,17 +116,23 @@ class RecipeListRecordDocumentEquality implements Equality<RecipeListRecord> {
 
   @override
   bool equals(RecipeListRecord? e1, RecipeListRecord? e2) {
-    const listEquality = ListEquality();
-    return listEquality.equals(e1?.instructions, e2?.instructions) &&
-        e1?.name == e2?.name &&
+    return e1?.name == e2?.name &&
         e1?.timeAllocated == e2?.timeAllocated &&
         e1?.typeOfMeal == e2?.typeOfMeal &&
-        e1?.imageUrl == e2?.imageUrl;
+        e1?.imageUrl == e2?.imageUrl &&
+        e1?.recipe == e2?.recipe &&
+        e1?.instructions == e2?.instructions;
   }
 
   @override
-  int hash(RecipeListRecord? e) => const ListEquality().hash(
-      [e?.instructions, e?.name, e?.timeAllocated, e?.typeOfMeal, e?.imageUrl]);
+  int hash(RecipeListRecord? e) => const ListEquality().hash([
+        e?.name,
+        e?.timeAllocated,
+        e?.typeOfMeal,
+        e?.imageUrl,
+        e?.recipe,
+        e?.instructions
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is RecipeListRecord;

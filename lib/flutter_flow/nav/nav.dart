@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -88,10 +89,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
         ),
         FFRoute(
-          name: 'recipePage',
-          path: '/recipePage',
-          builder: (context, params) => RecipePageWidget(
-            aiImage: params.getParam('aiImage', ParamType.String),
+          name: 'recipeDetails',
+          path: '/recipeDetails',
+          builder: (context, params) => RecipeDetailsWidget(
+            recipeDetails: params.getParam('recipeDetails',
+                ParamType.DocumentReference, false, ['RecipeList']),
           ),
         ),
         FFRoute(
@@ -108,11 +110,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Inventory',
           path: '/inventory',
           builder: (context, params) => InventoryWidget(),
-        ),
-        FFRoute(
-          name: 'HomePage',
-          path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
           name: 'CreateRecipeCopy',
@@ -139,6 +136,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'settings',
           path: '/settings',
           builder: (context, params) => SettingsWidget(),
+        ),
+        FFRoute(
+          name: 'HomePage',
+          path: '/homePage',
+          builder: (context, params) => HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'recipePage',
+          path: '/recipePage',
+          builder: (context, params) => RecipePageWidget(
+            firstResponse: params.getParam('firstResponse', ParamType.JSON),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -322,10 +331,9 @@ class FFRoute {
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
+                    child: SpinKitWanderingCubes(
+                      color: FlutterFlowTheme.of(context).primary,
+                      size: 50.0,
                     ),
                   ),
                 )

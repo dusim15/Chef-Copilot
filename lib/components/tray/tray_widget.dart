@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +31,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 2.ms,
-          duration: 1100.ms,
+          duration: 900.ms,
           begin: Offset(0.0, 160.0),
           end: Offset(0.0, 0.0),
         ),
@@ -49,7 +50,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 2.ms,
-          duration: 900.ms,
+          duration: 700.ms,
           begin: Offset(0.0, 110.0),
           end: Offset(0.0, 0.0),
         ),

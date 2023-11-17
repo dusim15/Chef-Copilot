@@ -141,23 +141,14 @@ class GetResponseCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "model": "",
-  "prompt": "",
-  "best_of": 0,
-  "echo": false,
-  "frequency_penalty": 0,
-  "logit_bias": {},
-  "logprobs": 0,
-  "max_tokens": 16,
-  "n": 1,
-  "presence_penalty": 0,
-  "seed": 0,
-  "stop": "",
-  "stream": false,
-  "suffix": "test.",
-  "temperature": 1,
-  "top_p": 1,
-  "user": "user-1234"
+  "messages": [
+    {
+      "role": "user",
+      "content": "${prompt}. Return a response that could be read allowed in a total of about 13-15 seconds in ${language} (language code)"
+    }
+  ],
+  "model": "gpt-4-1106-preview",
+  "max_tokens": 100
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getResponse',
@@ -220,7 +211,7 @@ class CreateImageCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "prompt": "${query}",
+  "prompt": "Create an image of a meal based of the ingredients provided: ${query}",
   "model": "dall-e-3",
   "n": 1,
   "quality": "standard",
@@ -293,7 +284,6 @@ class CreateImageVariationCall {
 
 class CreateEmbeddingCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
     String? apiKey = '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',
   }) async {
     final ffApiRequestBody = '''
@@ -1693,16 +1683,14 @@ class GetMessageFileCall {
 
 class CreateRecipeCall {
   Future<ApiCallResponse> call({
-    List<String>? listOfProductsAvailableList,
-    List<String>? listOfSpicesList,
+    String? listOfProductsAvailable = '',
+    String? listOfSpices = '',
     String? typeOfMeal = '',
     String? availableTime = '',
     String? leftOvers = '',
+    String? functionCall = '',
     String? apiKey = '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',
   }) async {
-    final listOfProductsAvailable = _serializeList(listOfProductsAvailableList);
-    final listOfSpices = _serializeList(listOfSpicesList);
-
     final ffApiRequestBody = '''
 {
   "model": "gpt-4-vision-preview",
@@ -1712,13 +1700,17 @@ class CreateRecipeCall {
       "content": [
         {
           "type": "text",
-          "text": "${listOfProductsAvailable}"
+          "text": "Create a recipe with the following details provided: ${listOfProductsAvailable}, ${listOfSpices}, ${typeOfMeal}, ${availableTime}, ${leftOvers}"
         },
         {
-          "type": "image_url",
-          "image_url": {
-            "url": ""
-          }
+          "prompt": "Create an image of a meal based of the ingredients provided: ${listOfProductsAvailable}",
+          "model": "dall-e-3",
+          "n": 1,
+          "quality": "standard",
+          "response_format": "url",
+          "size": "1024x1024",
+          "style": "vivid",
+          "user": "user-1234"
         }
       ]
     }
@@ -1741,6 +1733,11 @@ class CreateRecipeCall {
       cache: false,
     );
   }
+
+  dynamic message(dynamic response) => getJsonField(
+        response,
+        r'''$.error.message''',
+      );
 }
 
 /// End OpenAI API Group Code

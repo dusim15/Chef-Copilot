@@ -1,9 +1,13 @@
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'recipe_page_model.dart';
@@ -12,19 +16,81 @@ export 'recipe_page_model.dart';
 class RecipePageWidget extends StatefulWidget {
   const RecipePageWidget({
     Key? key,
-    this.aiImage,
+    required this.firstResponse,
   }) : super(key: key);
 
-  final String? aiImage;
+  final dynamic firstResponse;
 
   @override
   _RecipePageWidgetState createState() => _RecipePageWidgetState();
 }
 
-class _RecipePageWidgetState extends State<RecipePageWidget> {
+class _RecipePageWidgetState extends State<RecipePageWidget>
+    with TickerProviderStateMixin {
   late RecipePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 6.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 700.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 6.ms,
+          duration: 900.ms,
+          begin: Offset(0.0, -30.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 800.ms,
+          duration: 700.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 900.ms,
+          begin: Offset(0.0, -30.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 1200.ms,
+          duration: 700.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 800.ms,
+          duration: 900.ms,
+          begin: Offset(0.0, -30.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -76,13 +142,17 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                   color: FlutterFlowTheme.of(context).alternate,
                   image: DecorationImage(
                     fit: BoxFit.cover,
+                    alignment: AlignmentDirectional(0.00, 0.00),
                     image: Image.network(
-                      'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxmb29kfGVufDB8fHx8MTY5ODA5Mzc3N3ww&ixlib=rb-4.0.3&q=80&w=1080',
+                      getJsonField(
+                        widget.firstResponse,
+                        r'''$.image_of_meal''',
+                      ),
                     ).image,
                   ),
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(24.0),
-                    bottomRight: Radius.circular(24.0),
+                    bottomLeft: Radius.circular(48.0),
+                    bottomRight: Radius.circular(48.0),
                     topLeft: Radius.circular(0.0),
                     topRight: Radius.circular(0.0),
                   ),
@@ -97,143 +167,153 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
+                          FlutterFlowIconButton(
+                            borderRadius: 12.0,
+                            borderWidth: 0.0,
+                            buttonSize: 50.0,
+                            fillColor: Color(0x20FFFFFF),
+                            icon: Icon(
+                              Icons.arrow_back_ios_rounded,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 28.0,
+                            ),
+                            onPressed: () async {
                               context.safePop();
                             },
-                            child: Icon(
-                              Icons.arrow_back_ios_rounded,
-                              color: Color(0xB8D9D9D9),
-                              size: 26.0,
-                            ),
                           ),
                         ],
                       ),
                     ),
-                    Align(
-                      alignment: AlignmentDirectional(-1.00, 1.00),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 16.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 5.0),
-                              child: Row(
+                    Flexible(
+                      child: Align(
+                        alignment: AlignmentDirectional(-1.00, 1.00),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 16.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 16.0),
+                                child: Text(
+                                  getJsonField(
+                                    widget.firstResponse,
+                                    r'''$.name''',
+                                  ).toString(),
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: Colors.white,
+                                      ),
+                                ),
+                              ),
+                              Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 12.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'udh60zyp' /* Wheat Pancakes */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .override(
-                                            fontFamily: 'Outfit',
-                                            color: Colors.white,
+                                  Flexible(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 12.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () {
+                                          print('Button pressed ...');
+                                        },
+                                        text: getJsonField(
+                                          widget.firstResponse,
+                                          r'''$.time_to_cook''',
+                                        ).toString(),
+                                        icon: Icon(
+                                          Icons.access_time_rounded,
+                                          size: 18.0,
+                                        ),
+                                        options: FFButtonOptions(
+                                          height: 30.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: Color(0x9AED6E3A),
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily:
+                                                        'Plus Jakarta Sans',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 3.0,
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 1.0,
                                           ),
+                                          borderRadius:
+                                              BorderRadius.circular(24.0),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Flexible(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 12.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () {
+                                          print('Button pressed ...');
+                                        },
+                                        text: getJsonField(
+                                          widget.firstResponse,
+                                          r'''$.type_of_meal''',
+                                        ).toString(),
+                                        icon: Icon(
+                                          Icons.fastfood_sharp,
+                                          size: 18.0,
+                                        ),
+                                        options: FFButtonOptions(
+                                          height: 30.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: Color(0x9AED6E3A),
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily:
+                                                        'Plus Jakarta Sans',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 3.0,
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(24.0),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 12.0, 0.0),
-                                  child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'dz3mqkqn' /* ProductTime */,
-                                    ),
-                                    icon: Icon(
-                                      Icons.access_time_rounded,
-                                      size: 18.0,
-                                    ),
-                                    options: FFButtonOptions(
-                                      height: 30.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: Color(0x9AED6E3A),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: Colors.white,
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 12.0, 0.0),
-                                  child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'z3peqoot' /* ProductPrice */,
-                                    ),
-                                    icon: FaIcon(
-                                      FontAwesomeIcons.dollarSign,
-                                      size: 18.0,
-                                    ),
-                                    options: FFButtonOptions(
-                                      height: 30.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: Color(0x9AED6E3A),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: Colors.white,
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation']!),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(12.0, 24.0, 12.0, 12.0),
                 child: Column(
@@ -245,10 +325,10 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'xhbucuyd' /* Instructions: */,
+                          'fbxqgqk4' /* Instructions: */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Plus Jakarta Sans',
                               fontWeight: FontWeight.w500,
                             ),
                       ),
@@ -261,29 +341,44 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 0.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 24.0, 12.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  '4qt2s2zq' /* 1 cup of all-purpose flour
-2 t... */
-                                  ,
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                          ],
+                            12.0, 12.0, 0.0, 20.0),
+                        child: Builder(
+                          builder: (context) {
+                            final instructions = getJsonField(
+                              widget.firstResponse,
+                              r'''$.instructions''',
+                            ).toList();
+                            return Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: List.generate(instructions.length,
+                                  (instructionsIndex) {
+                                final instructionsItem =
+                                    instructions[instructionsIndex];
+                                return Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 8.0, 24.0, 0.0),
+                                  child: Text(
+                                    '${(int index) {
+                                      return (index + 1).toString() + '. ';
+                                    }(instructionsIndex)}${instructionsItem.toString()}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          fontSize: 16.0,
+                                        ),
+                                  ),
+                                );
+                              }),
+                            );
+                          },
                         ),
                       ),
                     ),
                   ],
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['columnOnPageLoadAnimation1']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(12.0, 24.0, 12.0, 44.0),
@@ -296,10 +391,10 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          '79c9bdav' /* Ingredients: */,
+                          'qn5hkmn1' /* Ingredients: */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Plus Jakarta Sans',
                               fontWeight: FontWeight.w500,
                             ),
                       ),
@@ -312,27 +407,44 @@ class _RecipePageWidgetState extends State<RecipePageWidget> {
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 0.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 24.0, 12.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  's35rkh93' /* In a large bowl, whisk togethe... */,
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                          ],
+                            12.0, 12.0, 0.0, 12.0),
+                        child: Builder(
+                          builder: (context) {
+                            final ingredients = getJsonField(
+                              widget.firstResponse,
+                              r'''$.ingredients''',
+                            ).toList();
+                            return Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: List.generate(ingredients.length,
+                                  (ingredientsIndex) {
+                                final ingredientsItem =
+                                    ingredients[ingredientsIndex];
+                                return Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 24.0, 12.0),
+                                  child: Text(
+                                    '${(int index) {
+                                      return (index + 1).toString() + '. ';
+                                    }(ingredientsIndex)}${ingredientsItem.toString()}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          fontSize: 16.0,
+                                        ),
+                                  ),
+                                );
+                              }),
+                            );
+                          },
                         ),
                       ),
                     ),
                   ],
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['columnOnPageLoadAnimation2']!),
               ),
             ],
           ),

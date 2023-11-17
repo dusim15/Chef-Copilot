@@ -41,11 +41,6 @@ class GroceryItemRecord extends FirestoreRecord {
   String get photoUrl => _photoUrl ?? '';
   bool hasPhotoUrl() => _photoUrl != null;
 
-  // "user_link" field.
-  DocumentReference? _userLink;
-  DocumentReference? get userLink => _userLink;
-  bool hasUserLink() => _userLink != null;
-
   // "category" field.
   String? _category;
   String get category => _category ?? '';
@@ -57,7 +52,6 @@ class GroceryItemRecord extends FirestoreRecord {
     _createdAt = snapshotData['created_at'] as DateTime?;
     _quantity = castToType<int>(snapshotData['quantity']);
     _photoUrl = snapshotData['photo_url'] as String?;
-    _userLink = snapshotData['user_link'] as DocumentReference?;
     _category = snapshotData['category'] as String?;
   }
 
@@ -101,7 +95,6 @@ Map<String, dynamic> createGroceryItemRecordData({
   DateTime? createdAt,
   int? quantity,
   String? photoUrl,
-  DocumentReference? userLink,
   String? category,
 }) {
   final firestoreData = mapToFirestore(
@@ -111,7 +104,6 @@ Map<String, dynamic> createGroceryItemRecordData({
       'created_at': createdAt,
       'quantity': quantity,
       'photo_url': photoUrl,
-      'user_link': userLink,
       'category': category,
     }.withoutNulls,
   );
@@ -129,20 +121,12 @@ class GroceryItemRecordDocumentEquality implements Equality<GroceryItemRecord> {
         e1?.createdAt == e2?.createdAt &&
         e1?.quantity == e2?.quantity &&
         e1?.photoUrl == e2?.photoUrl &&
-        e1?.userLink == e2?.userLink &&
         e1?.category == e2?.category;
   }
 
   @override
-  int hash(GroceryItemRecord? e) => const ListEquality().hash([
-        e?.name,
-        e?.price,
-        e?.createdAt,
-        e?.quantity,
-        e?.photoUrl,
-        e?.userLink,
-        e?.category
-      ]);
+  int hash(GroceryItemRecord? e) => const ListEquality().hash(
+      [e?.name, e?.price, e?.createdAt, e?.quantity, e?.photoUrl, e?.category]);
 
   @override
   bool isValidKey(Object? o) => o is GroceryItemRecord;
