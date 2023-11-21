@@ -30,6 +30,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SettingsModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'settings'});
   }
 
   @override
@@ -68,6 +70,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             size: 24.0,
           ),
           onPressed: () async {
+            logFirebaseEvent('SETTINGS_arrow_back_rounded_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),
@@ -102,33 +106,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'hd048vcb' /* My Subscription */,
-                      ),
-                      style: FlutterFlowTheme.of(context).titleLarge,
-                    ),
-                    Icon(
-                      Icons.chevron_right_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
                         'yi0oem2q' /* Getting Started */,
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge,
@@ -145,27 +122,39 @@ class _SettingsWidgetState extends State<SettingsWidget> {
           ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        'c7sitweq' /* About Us */,
+            child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                logFirebaseEvent('SETTINGS_PAGE_materialList_Item_2_ON_TAP');
+                logFirebaseEvent('materialList_Item_2_launch_u_r_l');
+                await launchURL('https://davidusim.flutterflow.app');
+              },
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        FFLocalizations.of(context).getText(
+                          'c7sitweq' /* About me */,
+                        ),
+                        style: FlutterFlowTheme.of(context).titleLarge,
                       ),
-                      style: FlutterFlowTheme.of(context).titleLarge,
-                    ),
-                    Icon(
-                      Icons.chevron_right_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                  ],
+                      Icon(
+                        Icons.chevron_right_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -425,6 +414,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
             child: FFButtonWidget(
               onPressed: () async {
+                logFirebaseEvent('SETTINGS_PAGE_LOG_OUT_BTN_ON_TAP');
+                logFirebaseEvent('Button_auth');
                 GoRouter.of(context).prepareAuthEvent();
                 await authManager.signOut();
                 GoRouter.of(context).clearRedirectLocation();

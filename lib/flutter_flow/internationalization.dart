@@ -152,7 +152,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // CreateRecipe
   {
-    'syuv94xl': {
+    'wyghwea4': {
       'en': 'Find New Recipies',
       'el': 'Βρείτε νέες συνταγές',
       'es': 'Encuentra nuevas recetas',
@@ -161,7 +161,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Trova nuove ricette',
       'zh_Hans': '寻找新食谱',
     },
-    'jpl4h78u': {
+    '9hky9wlz': {
       'en':
           'Provide a list of ingredients and we\'ll tell you what you can wake with them!',
       'el':
@@ -175,7 +175,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Fornisci un elenco di ingredienti e ti diremo cosa puoi svegliare con loro!',
       'zh_Hans': '提供成分清单，我们会告诉您可以用它们唤醒什么！',
     },
-    'kj6dh87a': {
+    '45wma1h4': {
       'en': 'Enter the ingredients you have on hand',
       'el': 'Εισαγάγετε τα υλικά που έχετε στη διάθεσή σας',
       'es': 'Introduce los ingredientes que tienes a mano',
@@ -184,7 +184,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Inserisci gli ingredienti che hai a portata di mano',
       'zh_Hans': '输入您现有的成分',
     },
-    '6ojwfa33': {
+    'o77r9xik': {
       'en': 'Ingredients...',
       'el': 'Συστατικά...',
       'es': 'Ingredientes...',
@@ -193,7 +193,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Ingredienti...',
       'zh_Hans': '原料...',
     },
-    'cpw9sv28': {
+    '83webv9g': {
       'en': 'Enter the condiments, seasoning, and sauces you have on hand.',
       'el':
           'Εισαγάγετε τα καρυκεύματα, τα καρυκεύματα και τις σάλτσες που έχετε στη διάθεσή σας.',
@@ -205,7 +205,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Inserisci i condimenti, i condimenti e le salse che hai a portata di mano.',
       'zh_Hans': '输入您手头的调味品、调料和酱汁。',
     },
-    '2tvjebpq': {
+    '61yhukpg': {
       'en': 'Condiments, seasoning and sauces...',
       'el': 'Καρυκεύματα, καρυκεύματα και σάλτσες...',
       'es': 'Condimentos, aliños y salsas...',
@@ -214,7 +214,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Condimenti, condimenti e salse...',
       'zh_Hans': '调味品、调料和酱料...',
     },
-    'zzl2s61q': {
+    '37x86g0c': {
       'en': 'Available leftovers (Optional)',
       'el': 'Διαθέσιμα υπολείμματα (Προαιρετικά)',
       'es': 'Sobras disponibles (Opcional)',
@@ -223,7 +223,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Avanzi disponibili (facoltativo)',
       'zh_Hans': '可用的剩菜（可选）',
     },
-    'b9yqvex0': {
+    '1dq6vb1s': {
       'en': 'Available leftovers (Optional)...',
       'el': 'Διαθέσιμα υπολείμματα (Προαιρετικά)...',
       'es': 'Sobras disponibles (Opcional)...',
@@ -232,7 +232,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Avanzi disponibili (facoltativo)...',
       'zh_Hans': '可用的剩菜（可选）...',
     },
-    'mf32wa1p': {
+    'zjmmdqlp': {
       'en': 'Type of Meal',
       'el': 'Είδος Γεύματος',
       'es': 'Tipo de comida',
@@ -241,7 +241,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Tipo di pasto',
       'zh_Hans': '膳食类型',
     },
-    '5fcyzeic': {
+    'hdapt8yw': {
       'en': 'Please select what time of day you want the meal',
       'el': 'Επιλέξτε ποια ώρα της ημέρας θέλετε το γεύμα',
       'es': 'Por favor seleccione a qué hora del día desea la comida.',
@@ -251,7 +251,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Seleziona l\'ora del giorno in cui desideri il pasto',
       'zh_Hans': '请选择您想要用餐的时间',
     },
-    '9h23lnus': {
+    'voelnu9b': {
       'en': 'Breakfast',
       'el': 'ΠΡΩΙΝΟ ΓΕΥΜΑ',
       'es': 'Desayuno',
@@ -260,7 +260,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Colazione',
       'zh_Hans': '早餐',
     },
-    '05nkch2d': {
+    '87ho4ceu': {
       'en': 'Brunch',
       'el': 'Μεσημεριανό',
       'es': 'Desalmuerzo',
@@ -269,7 +269,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Brunch',
       'zh_Hans': '早午餐',
     },
-    'j0c9kbi9': {
+    'ulib0d6s': {
       'en': 'Lunch',
       'el': 'Μεσημεριανό',
       'es': 'Almuerzo',
@@ -278,7 +278,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Pranzo',
       'zh_Hans': '午餐',
     },
-    'uqxnnwmb': {
+    'ndm65i1k': {
       'en': 'Dinner',
       'el': 'Βραδινό',
       'es': 'Cena',
@@ -287,7 +287,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Cena',
       'zh_Hans': '晚餐',
     },
-    'zisnwh5t': {
+    'a6jso50c': {
       'en': 'Available Time',
       'el': 'Διαθέσιμος χρόνος',
       'es': 'Tiempo disponible',
@@ -296,7 +296,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Tempo disponibile',
       'zh_Hans': '有空时间',
     },
-    '4mvwvisj': {
+    'ihs0yb7a': {
       'en': 'Please select how much  time you have to make this meal',
       'el': 'Επιλέξτε πόσο χρόνο έχετε για να φτιάξετε αυτό το γεύμα',
       'es':
@@ -307,7 +307,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Seleziona quanto tempo hai per preparare questo pasto',
       'zh_Hans': '请选择您需要多长时间来做这顿饭',
     },
-    'm65wwtqi': {
+    'juzf3y71': {
       'en': '5 min',
       'el': '5 λεπτά',
       'es': '5 minutos',
@@ -316,7 +316,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '5 minuti',
       'zh_Hans': '5分钟',
     },
-    '02p9tzwe': {
+    'hegbzyx5': {
       'en': '15 min',
       'el': '15 λεπτά',
       'es': '15 minutos',
@@ -325,7 +325,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '15 minuti',
       'zh_Hans': '15分钟',
     },
-    '6aoqnp06': {
+    'h4xsybxo': {
       'en': '30 min',
       'el': '30 λεπτά',
       'es': '30 minutos',
@@ -334,7 +334,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '30 minuti',
       'zh_Hans': '30分钟',
     },
-    'rdv8o3te': {
+    'tpy3ke25': {
       'en': '1 hour',
       'el': '1 ώρα',
       'es': '1 hora',
@@ -343,7 +343,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '1 ora',
       'zh_Hans': '1小时',
     },
-    'cpkrgq1x': {
+    'gqz7hg8x': {
       'en': '2 hours',
       'el': '2 ώρες',
       'es': '2 horas',
@@ -352,7 +352,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '2 ore',
       'zh_Hans': '2小时',
     },
-    'vij7jfs2': {
+    'wm5hsb1s': {
       'en': 'infinite',
       'el': 'άπειρος',
       'es': 'infinito',
@@ -361,7 +361,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'infinito',
       'zh_Hans': '无穷',
     },
-    '8o4d9m1u': {
+    'q8lqcaym': {
       'en': 'Generate Recipies',
       'el': 'Δημιουργία συνταγών',
       'es': 'Generar recetas',
@@ -370,7 +370,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Genera ricette',
       'zh_Hans': '生成食谱',
     },
-    'f8n068di': {
+    'wjgshfr7': {
       'en': 'Chef Copilot',
       'el': 'Σεφ Copilot',
       'es': 'Chef copiloto',
@@ -1202,15 +1202,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    'hd048vcb': {
-      'en': 'My Subscription',
-      'el': '',
-      'es': '',
-      'fr': '',
-      'he': '',
-      'it': '',
-      'zh_Hans': '',
-    },
     'yi0oem2q': {
       'en': 'Getting Started',
       'el': '',
@@ -1221,7 +1212,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
     },
     'c7sitweq': {
-      'en': 'About Us',
+      'en': 'About me',
       'el': '',
       'es': '',
       'fr': '',
@@ -1359,7 +1350,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Cuoco Copilota',
       'zh_Hans': '副驾驶厨师',
     },
-    '7oa1y7bh': {
+    'n1qv1pvc': {
       'en': 'Talk to Copilot',
       'el': '',
       'es': '',
@@ -1368,7 +1359,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    '293jyrru': {
+    'gfde0i2h': {
       'en': 'Settings',
       'el': '',
       'es': '',
@@ -1377,7 +1368,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': '',
       'zh_Hans': '',
     },
-    'p11fhk6m': {
+    'r80eq3k6': {
       'en': 'About me',
       'el': '',
       'es': '',

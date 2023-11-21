@@ -122,6 +122,9 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
+                logFirebaseEvent('TRAY_COMP_Row_xpgg93tt_ON_TAP');
+                logFirebaseEvent('Row_navigate_to');
+
                 context.pushNamed(
                   'SearchImage',
                   extra: <String, dynamic>{
@@ -133,6 +136,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                   },
                 );
 
+                logFirebaseEvent('Row_bottom_sheet');
                 Navigator.pop(context);
               },
               child: Row(
@@ -171,6 +175,9 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
+                logFirebaseEvent('TRAY_COMP_Row_5s3m5vny_ON_TAP');
+                logFirebaseEvent('Row_navigate_to');
+
                 context.pushNamed(
                   'CreateRecipe',
                   extra: <String, dynamic>{
@@ -182,6 +189,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                   },
                 );
 
+                logFirebaseEvent('Row_bottom_sheet');
                 Navigator.pop(context);
               },
               child: Row(
@@ -209,6 +217,9 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                       size: 28.0,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent('TRAY_COMP_createRecipe_ON_TAP');
+                      logFirebaseEvent('createRecipe_navigate_to');
+
                       context.pushNamed(
                         'CreateRecipe',
                         extra: <String, dynamic>{
@@ -220,6 +231,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                         },
                       );
 
+                      logFirebaseEvent('createRecipe_bottom_sheet');
                       Navigator.pop(context);
                     },
                   ),
@@ -232,6 +244,8 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
+                logFirebaseEvent('TRAY_COMP_Row_unvlo3wc_ON_TAP');
+                logFirebaseEvent('Row_bottom_sheet');
                 await showModalBottomSheet(
                   isScrollControlled: true,
                   backgroundColor: Color(0x9A000000),
@@ -244,6 +258,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                   },
                 ).then((value) => safeSetState(() {}));
 
+                logFirebaseEvent('Row_bottom_sheet');
                 Navigator.pop(context);
               },
               child: Row(
@@ -271,6 +286,8 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                       size: 28.0,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent('TRAY_COMP_addProduct_ON_TAP');
+                      logFirebaseEvent('addProduct_bottom_sheet');
                       await showModalBottomSheet(
                         isScrollControlled: true,
                         backgroundColor: Color(0x9A000000),
@@ -283,6 +300,7 @@ class _TrayWidgetState extends State<TrayWidget> with TickerProviderStateMixin {
                         },
                       ).then((value) => safeSetState(() {}));
 
+                      logFirebaseEvent('addProduct_bottom_sheet');
                       Navigator.pop(context);
                     },
                   ),

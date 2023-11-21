@@ -31,6 +31,8 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
     super.initState();
     _model = createModel(context, () => CreateRecipeModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'CreateRecipe'});
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -91,6 +93,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
+                        logFirebaseEvent(
+                            'CREATE_RECIPE_PAGE_Row_ma5f7mta_ON_TAP');
+                        logFirebaseEvent('Row_set_dark_mode_settings');
                         setDarkModeSetting(context, ThemeMode.light);
                       },
                       child: Row(
@@ -122,6 +127,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
+                        logFirebaseEvent(
+                            'CREATE_RECIPE_PAGE_Row_qybo8566_ON_TAP');
+                        logFirebaseEvent('Row_set_dark_mode_settings');
                         setDarkModeSetting(context, ThemeMode.dark);
                       },
                       child: Row(
@@ -157,7 +165,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 60.0, 12.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(1.0, 60.0, 0.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -168,10 +176,14 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 8.0, 12.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'syuv94xl' /* Find New Recipies */,
+                                'wyghwea4' /* Find New Recipies */,
                               ),
-                              style:
-                                  FlutterFlowTheme.of(context).headlineMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    fontSize: 28.0,
+                                  ),
                             ),
                           ),
                           Padding(
@@ -179,7 +191,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 8.0, 4.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'jpl4h78u' /* Provide a list of ingredients ... */,
+                                '9hky9wlz' /* Provide a list of ingredients ... */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -198,7 +210,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     8.0, 24.0, 24.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'kj6dh87a' /* Enter the ingredients you have... */,
+                                    '45wma1h4' /* Enter the ingredients you have... */,
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).titleLarge,
@@ -215,10 +227,15 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      '6ojwfa33' /* Ingredients... */,
+                                      'o77r9xik' /* Ingredients... */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          fontSize: 28.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium,
                                     enabledBorder: UnderlineInputBorder(
@@ -255,10 +272,17 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     ),
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 0.0),
+                                            12.0, 12.0, 24.0, 0.0),
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Plus Jakarta Sans',
+                                        fontSize: 24.0,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                  cursorColor:
+                                      FlutterFlowTheme.of(context).primary,
                                   validator: _model.textController1Validator
                                       .asValidator(context),
                                 ),
@@ -274,7 +298,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     8.0, 24.0, 24.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'cpw9sv28' /* Enter the condiments, seasonin... */,
+                                    '83webv9g' /* Enter the condiments, seasonin... */,
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).titleLarge,
@@ -291,10 +315,15 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      '2tvjebpq' /* Condiments, seasoning and sauc... */,
+                                      '61yhukpg' /* Condiments, seasoning and sauc... */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium,
                                     enabledBorder: UnderlineInputBorder(
@@ -331,7 +360,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     ),
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 0.0),
+                                            12.0, 12.0, 24.0, 0.0),
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
@@ -350,7 +379,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     8.0, 24.0, 24.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'zzl2s61q' /* Available leftovers (Optional) */,
+                                    '37x86g0c' /* Available leftovers (Optional) */,
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).titleLarge,
@@ -367,10 +396,15 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'b9yqvex0' /* Available leftovers (Optional)... */,
+                                      '1dq6vb1s' /* Available leftovers (Optional)... */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium,
                                     enabledBorder: UnderlineInputBorder(
@@ -407,10 +441,14 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     ),
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 0.0),
+                                            12.0, 12.0, 24.0, 0.0),
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Plus Jakarta Sans',
+                                        fontSize: 20.0,
+                                      ),
                                   validator: _model.textController3Validator
                                       .asValidator(context),
                                 ),
@@ -422,7 +460,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 8.0, 24.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'mf32wa1p' /* Type of Meal */,
+                                'zjmmdqlp' /* Type of Meal */,
                               ),
                               style: FlutterFlowTheme.of(context).titleLarge,
                             ),
@@ -439,7 +477,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                       0.0, 0.0, 0.0, 7.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '5fcyzeic' /* Please select what time of day... */,
+                                      'hdapt8yw' /* Please select what time of day... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -454,22 +492,22 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   options: [
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                          '9h23lnus' /* Breakfast */,
+                                          'voelnu9b' /* Breakfast */,
                                         ),
                                         Icons.sunny),
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                          '05nkch2d' /* Brunch */,
+                                          '87ho4ceu' /* Brunch */,
                                         ),
                                         FontAwesomeIcons.cloudSun),
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                          'j0c9kbi9' /* Lunch */,
+                                          'ulib0d6s' /* Lunch */,
                                         ),
                                         Icons.cloud),
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                          'uqxnnwmb' /* Dinner */,
+                                          'ndm65i1k' /* Dinner */,
                                         ),
                                         FontAwesomeIcons.cloudMoon)
                                   ],
@@ -529,7 +567,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                 8.0, 12.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'zisnwh5t' /* Available Time */,
+                                'a6jso50c' /* Available Time */,
                               ),
                               style: FlutterFlowTheme.of(context).titleLarge,
                             ),
@@ -546,7 +584,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                       0.0, 0.0, 0.0, 7.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '4mvwvisj' /* Please select how much  time y... */,
+                                      'ihs0yb7a' /* Please select how much  time y... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -561,27 +599,27 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   options: [
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                      'm65wwtqi' /* 5 min */,
+                                      'juzf3y71' /* 5 min */,
                                     )),
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                      '02p9tzwe' /* 15 min */,
+                                      'hegbzyx5' /* 15 min */,
                                     )),
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                      '6aoqnp06' /* 30 min */,
+                                      'h4xsybxo' /* 30 min */,
                                     )),
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                      'rdv8o3te' /* 1 hour */,
+                                      'tpy3ke25' /* 1 hour */,
                                     )),
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                      'cpkrgq1x' /* 2 hours */,
+                                      'gqz7hg8x' /* 2 hours */,
                                     )),
                                     ChipData(
                                         FFLocalizations.of(context).getText(
-                                      'vij7jfs2' /* infinite */,
+                                      'wm5hsb1s' /* infinite */,
                                     ))
                                   ],
                                   onChanged: (val) => setState(() =>
@@ -642,7 +680,10 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   24.0, 12.0, 24.0, 24.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'CREATE_RECIPE_GENERATE_RECIPIES_BTN_ON_T');
                                   var _shouldSetState = false;
+                                  logFirebaseEvent('Button_backend_call');
                                   _model.recipePrompt = await OpenAIAPIGroup
                                       .createRecipeCall
                                       .call(
@@ -654,6 +695,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     leftOvers: _model.textController3.text,
                                   );
                                   _shouldSetState = true;
+                                  logFirebaseEvent('Button_backend_call');
                                   _model.apiResultlfu =
                                       await OpenAIAPIGroup.createImageCall.call(
                                     query: _model.textController1.text,
@@ -661,6 +703,8 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   _shouldSetState = true;
                                   if ((_model.apiResultlfu?.succeeded ??
                                       true)) {
+                                    logFirebaseEvent('Button_navigate_to');
+
                                     context.pushNamed(
                                       'recipePage',
                                       queryParameters: {
@@ -682,6 +726,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   } else {
+                                    logFirebaseEvent('Button_show_snack_bar');
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
@@ -704,7 +749,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   if (_shouldSetState) setState(() {});
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  '8o4d9m1u' /* Generate Recipies */,
+                                  'q8lqcaym' /* Generate Recipies */,
                                 ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
@@ -761,6 +806,9 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      logFirebaseEvent(
+                                          'CREATE_RECIPE_PAGE_Icon_5wmthmz8_ON_TAP');
+                                      logFirebaseEvent('Icon_navigate_back');
                                       context.safePop();
                                     },
                                     child: Icon(
@@ -771,7 +819,7 @@ class _CreateRecipeWidgetState extends State<CreateRecipeWidget> {
                                   ),
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'f8n068di' /* Chef Copilot */,
+                                      'wjgshfr7' /* Chef Copilot */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall

@@ -21,17 +21,5 @@ service cloud.firestore {
       allow write: if false;
       allow delete: if false;
     }
-
-    match /RecipeList/{parent}/ingredient/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
-    }
-
-    match /{path=**}/ingredient/{document} {
-      allow read: if true;
-    }
-
   }
 }

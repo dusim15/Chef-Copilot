@@ -30,6 +30,8 @@ class _InventoryWidgetState extends State<InventoryWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InventoryModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Inventory'});
   }
 
   @override
@@ -61,6 +63,8 @@ class _InventoryWidgetState extends State<InventoryWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
+            logFirebaseEvent('INVENTORY_FloatingActionButton_08ltm8ck_');
+            logFirebaseEvent('FloatingActionButton_bottom_sheet');
             await showModalBottomSheet(
               isScrollControlled: true,
               backgroundColor: Color(0x9A000000),
@@ -109,6 +113,9 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                   size: 24.0,
                 ),
                 onPressed: () async {
+                  logFirebaseEvent('INVENTORY_restaurant_rounded_ICN_ON_TAP');
+                  logFirebaseEvent('IconButton_navigate_to');
+
                   context.pushNamed(
                     'CreateRecipe',
                     extra: <String, dynamic>{
@@ -195,7 +202,7 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                             .listViewPagingController!.itemList![listViewIndex];
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 8.0),
+                              16.0, 0.0, 16.0, 12.0),
                           child: Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
@@ -280,6 +287,10 @@ class _InventoryWidgetState extends State<InventoryWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
+                                            logFirebaseEvent(
+                                                'INVENTORY_PAGE_Icon_6i809d42_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Icon_backend_call');
                                             await listViewGroceryItemRecord
                                                 .reference
                                                 .delete();

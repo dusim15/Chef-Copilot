@@ -21,11 +21,6 @@ class RecipeListRecord extends FirestoreRecord {
   String get name => _name ?? '';
   bool hasName() => _name != null;
 
-  // "timeAllocated" field.
-  DateTime? _timeAllocated;
-  DateTime? get timeAllocated => _timeAllocated;
-  bool hasTimeAllocated() => _timeAllocated != null;
-
   // "typeOfMeal" field.
   String? _typeOfMeal;
   String get typeOfMeal => _typeOfMeal ?? '';
@@ -46,13 +41,18 @@ class RecipeListRecord extends FirestoreRecord {
   String get instructions => _instructions ?? '';
   bool hasInstructions() => _instructions != null;
 
+  // "timeAllocated" field.
+  String? _timeAllocated;
+  String get timeAllocated => _timeAllocated ?? '';
+  bool hasTimeAllocated() => _timeAllocated != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
-    _timeAllocated = snapshotData['timeAllocated'] as DateTime?;
     _typeOfMeal = snapshotData['typeOfMeal'] as String?;
     _imageUrl = snapshotData['image_url'] as String?;
     _recipe = snapshotData['recipe'] as String?;
     _instructions = snapshotData['instructions'] as String?;
+    _timeAllocated = snapshotData['timeAllocated'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -91,20 +91,20 @@ class RecipeListRecord extends FirestoreRecord {
 
 Map<String, dynamic> createRecipeListRecordData({
   String? name,
-  DateTime? timeAllocated,
   String? typeOfMeal,
   String? imageUrl,
   String? recipe,
   String? instructions,
+  String? timeAllocated,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
-      'timeAllocated': timeAllocated,
       'typeOfMeal': typeOfMeal,
       'image_url': imageUrl,
       'recipe': recipe,
       'instructions': instructions,
+      'timeAllocated': timeAllocated,
     }.withoutNulls,
   );
 
@@ -117,21 +117,21 @@ class RecipeListRecordDocumentEquality implements Equality<RecipeListRecord> {
   @override
   bool equals(RecipeListRecord? e1, RecipeListRecord? e2) {
     return e1?.name == e2?.name &&
-        e1?.timeAllocated == e2?.timeAllocated &&
         e1?.typeOfMeal == e2?.typeOfMeal &&
         e1?.imageUrl == e2?.imageUrl &&
         e1?.recipe == e2?.recipe &&
-        e1?.instructions == e2?.instructions;
+        e1?.instructions == e2?.instructions &&
+        e1?.timeAllocated == e2?.timeAllocated;
   }
 
   @override
   int hash(RecipeListRecord? e) => const ListEquality().hash([
         e?.name,
-        e?.timeAllocated,
         e?.typeOfMeal,
         e?.imageUrl,
         e?.recipe,
-        e?.instructions
+        e?.instructions,
+        e?.timeAllocated
       ]);
 
   @override

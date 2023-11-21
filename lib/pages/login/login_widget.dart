@@ -102,6 +102,7 @@ class _LoginWidgetState extends State<LoginWidget>
     super.initState();
     _model = createModel(context, () => LoginModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Login'});
     _model.tabBarController = TabController(
       vsync: this,
       length: 2,
@@ -723,6 +724,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   16.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'LOGIN_PAGE_GET_STARTED_BTN_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Button_auth');
                                                           GoRouter.of(context)
                                                               .prepareAuthEvent();
                                                           if (_model
@@ -888,6 +893,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     FFButtonWidget(
                                                                   onPressed:
                                                                       () async {
+                                                                    logFirebaseEvent(
+                                                                        'LOGIN_CONTINUE_WITH_GOOGLE_BTN_ON_TAP');
+                                                                    logFirebaseEvent(
+                                                                        'Button_auth');
                                                                     GoRouter.of(
                                                                             context)
                                                                         .prepareAuthEvent();
@@ -975,6 +984,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                           FFButtonWidget(
                                                                         onPressed:
                                                                             () async {
+                                                                          logFirebaseEvent(
+                                                                              'LOGIN_CONTINUE_WITH_APPLE_BTN_ON_TAP');
+                                                                          logFirebaseEvent(
+                                                                              'Button_auth');
                                                                           GoRouter.of(context)
                                                                               .prepareAuthEvent();
                                                                           final user =
@@ -1364,6 +1377,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   16.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'LOGIN_PAGE_SIGN_IN_BTN_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Button_auth');
                                                           GoRouter.of(context)
                                                               .prepareAuthEvent();
 
@@ -1497,6 +1514,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
+                                                              logFirebaseEvent(
+                                                                  'LOGIN_CONTINUE_WITH_GOOGLE_BTN_ON_TAP');
+                                                              logFirebaseEvent(
+                                                                  'Button_auth');
                                                               GoRouter.of(
                                                                       context)
                                                                   .prepareAuthEvent();
@@ -1588,6 +1609,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     FFButtonWidget(
                                                                   onPressed:
                                                                       () async {
+                                                                    logFirebaseEvent(
+                                                                        'LOGIN_CONTINUE_WITH_APPLE_BTN_ON_TAP');
+                                                                    logFirebaseEvent(
+                                                                        'Button_auth');
                                                                     GoRouter.of(
                                                                             context)
                                                                         .prepareAuthEvent();
@@ -1680,6 +1705,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   16.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'LOGIN_PAGE_FORGOT_PASSWORD?_BTN_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Button_auth');
                                                           GoRouter.of(context)
                                                               .prepareAuthEvent();
                                                           final user =

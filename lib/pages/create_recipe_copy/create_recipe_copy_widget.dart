@@ -31,6 +31,8 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
     super.initState();
     _model = createModel(context, () => CreateRecipeCopyModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'CreateRecipeCopy'});
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -91,6 +93,9 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
+                        logFirebaseEvent(
+                            'CREATE_RECIPE_COPY_Row_g8bp4kxe_ON_TAP');
+                        logFirebaseEvent('Row_set_dark_mode_settings');
                         setDarkModeSetting(context, ThemeMode.light);
                       },
                       child: Row(
@@ -122,6 +127,9 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
+                        logFirebaseEvent(
+                            'CREATE_RECIPE_COPY_Row_jkg3gnca_ON_TAP');
+                        logFirebaseEvent('Row_set_dark_mode_settings');
                         setDarkModeSetting(context, ThemeMode.dark);
                       },
                       child: Row(
@@ -186,7 +194,11 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                               '1776dyhc' /* Find New Recipies */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .headlineMedium,
+                                                .headlineMedium
+                                                .override(
+                                                  fontFamily: 'Urbanist',
+                                                  fontSize: 28.0,
+                                                ),
                                           ),
                                         ),
                                         Padding(
@@ -241,10 +253,16 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                       .getText(
                                                     'ww0fpm9f' /* Ingredients... */,
                                                   ),
-                                                  labelStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium,
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        fontSize: 28.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -303,12 +321,22 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                   ),
                                                   contentPadding:
                                                       EdgeInsetsDirectional
-                                                          .fromSTEB(12.0, 0.0,
-                                                              0.0, 0.0),
+                                                          .fromSTEB(12.0, 12.0,
+                                                              24.0, 0.0),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          fontSize: 24.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                cursorColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 validator: _model
                                                     .textController1Validator
                                                     .asValidator(context),
@@ -351,10 +379,16 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                       .getText(
                                                     '33nurh1d' /* Condiments, seasoning and sauc... */,
                                                   ),
-                                                  labelStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium,
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        fontSize: 20.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -413,8 +447,8 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                   ),
                                                   contentPadding:
                                                       EdgeInsetsDirectional
-                                                          .fromSTEB(12.0, 0.0,
-                                                              0.0, 0.0),
+                                                          .fromSTEB(12.0, 12.0,
+                                                              24.0, 0.0),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -461,10 +495,16 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                       .getText(
                                                     'soieokzo' /* Available leftovers (Optional)... */,
                                                   ),
-                                                  labelStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium,
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        fontSize: 18.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -523,12 +563,17 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                   ),
                                                   contentPadding:
                                                       EdgeInsetsDirectional
-                                                          .fromSTEB(12.0, 0.0,
-                                                              0.0, 0.0),
+                                                          .fromSTEB(12.0, 12.0,
+                                                              24.0, 0.0),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          fontSize: 20.0,
+                                                        ),
                                                 validator: _model
                                                     .textController3Validator
                                                     .asValidator(context),
@@ -847,7 +892,11 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                     24.0, 12.0, 24.0, 24.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'CREATE_RECIPE_COPY_GENERATE_RECIPIES_BTN');
                                                 var _shouldSetState = false;
+                                                logFirebaseEvent(
+                                                    'Button_backend_call');
                                                 _model.recipePrompt =
                                                     await OpenAIAPIGroup
                                                         .createRecipeCall
@@ -865,6 +914,8 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                       .textController3.text,
                                                 );
                                                 _shouldSetState = true;
+                                                logFirebaseEvent(
+                                                    'Button_backend_call');
                                                 _model.apiResultlfu =
                                                     await OpenAIAPIGroup
                                                         .createImageCall
@@ -876,6 +927,9 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                 if ((_model.apiResultlfu
                                                         ?.succeeded ??
                                                     true)) {
+                                                  logFirebaseEvent(
+                                                      'Button_navigate_to');
+
                                                   context.pushNamed(
                                                     'recipePage',
                                                     queryParameters: {
@@ -904,6 +958,8 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                     setState(() {});
                                                   return;
                                                 } else {
+                                                  logFirebaseEvent(
+                                                      'Button_show_snack_bar');
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
                                                     SnackBar(
@@ -1004,6 +1060,10 @@ class _CreateRecipeCopyWidgetState extends State<CreateRecipeCopyWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    logFirebaseEvent(
+                                                        'CREATE_RECIPE_COPY_Icon_a4k6n9y7_ON_TAP');
+                                                    logFirebaseEvent(
+                                                        'Icon_navigate_back');
                                                     context.safePop();
                                                   },
                                                   child: Icon(

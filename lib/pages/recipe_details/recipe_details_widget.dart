@@ -98,6 +98,9 @@ class _RecipeDetailsWidgetState extends State<RecipeDetailsWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => RecipeDetailsModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'recipeDetails'});
   }
 
   @override
@@ -195,6 +198,9 @@ class _RecipeDetailsWidgetState extends State<RecipeDetailsWidget>
                                   size: 28.0,
                                 ),
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'RECIPE_DETAILS_arrow_back_ios_rounded_IC');
+                                  logFirebaseEvent('IconButton_navigate_back');
                                   context.safePop();
                                 },
                               ),
@@ -235,8 +241,7 @@ class _RecipeDetailsWidgetState extends State<RecipeDetailsWidget>
                                             print('Button pressed ...');
                                           },
                                           text: columnRecipeListRecord
-                                              .timeAllocated!.secondsSinceEpoch
-                                              .toString(),
+                                              .timeAllocated,
                                           icon: Icon(
                                             Icons.access_time_rounded,
                                             size: 18.0,

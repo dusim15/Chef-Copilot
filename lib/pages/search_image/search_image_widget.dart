@@ -60,6 +60,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
     super.initState();
     _model = createModel(context, () => SearchImageModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'SearchImage'});
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -102,6 +103,9 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
+            logFirebaseEvent('SEARCH_IMAGE_FloatingActionButton_p5trls');
+            logFirebaseEvent('FloatingActionButton_navigate_to');
+
             context.pushNamed(
               'TalkToAI',
               extra: <String, dynamic>{
@@ -156,8 +160,12 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
                           if (shouldUpdate) setState(() {});
                         },
                         onEnded: () async {
+                          logFirebaseEvent(
+                              'SEARCH_IMAGE_Timer_tj4b7rlv_ON_TIMER_END');
+                          logFirebaseEvent('Timer_timer');
                           _model.timerController.onResetTimer();
 
+                          logFirebaseEvent('Timer_update_app_state');
                           setState(() {
                             FFAppState().isSpeaking = false;
                           });
@@ -182,16 +190,22 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
                           size: 24.0,
                         ),
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'SEARCH_IMAGE_PAGE_stopRecording_ON_TAP');
+                          logFirebaseEvent('stopRecording_update_app_state');
                           setState(() {
                             FFAppState().isRecording = false;
                           });
+                          logFirebaseEvent('stopRecording_custom_action');
                           await actions.stopTextRecording();
+                          logFirebaseEvent('stopRecording_backend_call');
                           _model.getResponseAPICall =
                               await OpenAIAPIGroup.getResponseCall.call(
                             prompt: FFAppState().speechToTextResponse,
                             language: FFLocalizations.of(context).languageCode,
                           );
                           if ((_model.getResponseAPICall?.succeeded ?? true)) {
+                            logFirebaseEvent('stopRecording_custom_action');
                             _model.speechOutput =
                                 await actions.fetchSpeechAndPlay(
                               OpenAIAPIGroup.getResponseCall
@@ -201,15 +215,19 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
                                   .toString(),
                               FFAppState().apiKey,
                             );
+                            logFirebaseEvent('stopRecording_update_app_state');
                             setState(() {
                               FFAppState().timerValue = _model.speechOutput!;
                               FFAppState().speechToTextResponse = '';
                               FFAppState().isSpeaking = true;
                             });
+                            logFirebaseEvent('stopRecording_wait__delay');
                             await Future.delayed(
                                 const Duration(milliseconds: 100));
+                            logFirebaseEvent('stopRecording_timer');
                             _model.timerController.onStartTimer();
                           } else {
+                            logFirebaseEvent('stopRecording_show_snack_bar');
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
@@ -241,11 +259,14 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
                           size: 24.0,
                         ),
                         onPressed: () async {
+                          logFirebaseEvent('SEARCH_IMAGE_PAGE_record_ON_TAP');
+                          logFirebaseEvent('record_custom_action');
                           unawaited(
                             () async {
                               await actions.startTextRecording();
                             }(),
                           );
+                          logFirebaseEvent('record_update_app_state');
                           setState(() {
                             FFAppState().isRecording = true;
                           });
@@ -265,6 +286,8 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
+              logFirebaseEvent('SEARCH_IMAGE_PAGE_Icon_8dqtyyhb_ON_TAP');
+              logFirebaseEvent('Icon_navigate_back');
               context.safePop();
             },
             child: Icon(
@@ -327,6 +350,10 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    logFirebaseEvent(
+                                        'SEARCH_IMAGE_Container_h4zxdcl3_ON_TAP');
+                                    logFirebaseEvent(
+                                        'Container_store_media_for_upload');
                                     final selectedMedia =
                                         await selectMediaWithSourceBottomSheet(
                                       context: context,
@@ -663,7 +690,10 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
                           EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 0.0, 32.0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'SEARCH_IMAGE_ASK_ABOUT_PRODUCT_BTN_ON_TA');
                           var _shouldSetState = false;
+                          logFirebaseEvent('Button_update_page_state');
                           setState(() {
                             _model.imageURL = widget.backgroundImage != null &&
                                     widget.backgroundImage != ''
@@ -672,6 +702,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
                           });
                           if (_model.imageURL == null ||
                               _model.imageURL == '') {
+                            logFirebaseEvent('Button_show_snack_bar');
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
@@ -689,6 +720,7 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
                             if (_shouldSetState) setState(() {});
                             return;
                           } else {
+                            logFirebaseEvent('Button_backend_call');
                             _model.openAPI = await OpenAIAPIGroup
                                 .createChatCompletionCall
                                 .call(
@@ -696,11 +728,13 @@ class _SearchImageWidgetState extends State<SearchImageWidget>
                             );
                             _shouldSetState = true;
                             if ((_model.openAPI?.succeeded ?? true)) {
+                              logFirebaseEvent('Button_update_page_state');
                               setState(() {
                                 _model.response =
                                     (_model.openAPI?.bodyText ?? '');
                               });
                             } else {
+                              logFirebaseEvent('Button_show_snack_bar');
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(

@@ -60,6 +60,8 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
     super.initState();
     _model = createModel(context, () => TalkToAIModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'TalkToAI'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -99,6 +101,8 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
+              logFirebaseEvent('TALK_TO_A_I_PAGE_Icon_b794dq9y_ON_TAP');
+              logFirebaseEvent('Icon_navigate_back');
               context.safePop();
             },
             child: Icon(
@@ -184,8 +188,12 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
                                     if (shouldUpdate) setState(() {});
                                   },
                                   onEnded: () async {
+                                    logFirebaseEvent(
+                                        'TALK_TO_A_I_Timer_g97sh5z4_ON_TIMER_END');
+                                    logFirebaseEvent('Timer_timer');
                                     _model.timerController.onResetTimer();
 
+                                    logFirebaseEvent('Timer_update_app_state');
                                     setState(() {
                                       FFAppState().isSpeaking = false;
                                     });
@@ -225,10 +233,18 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
                                           size: 150.0,
                                         ),
                                         onPressed: () async {
+                                          logFirebaseEvent(
+                                              'TALK_TO_A_I_PAGE_stopRecording_ON_TAP');
+                                          logFirebaseEvent(
+                                              'stopRecording_update_app_state');
                                           setState(() {
                                             FFAppState().isRecording = false;
                                           });
+                                          logFirebaseEvent(
+                                              'stopRecording_custom_action');
                                           await actions.stopTextRecording();
+                                          logFirebaseEvent(
+                                              'stopRecording_backend_call');
                                           _model.getResponseAPICall =
                                               await OpenAIAPIGroup
                                                   .getResponseCall
@@ -242,6 +258,8 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
                                           if ((_model.getResponseAPICall
                                                   ?.succeeded ??
                                               true)) {
+                                            logFirebaseEvent(
+                                                'stopRecording_custom_action');
                                             _model.speechOutput = await actions
                                                 .fetchSpeechAndPlay(
                                               OpenAIAPIGroup.getResponseCall
@@ -253,6 +271,8 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
                                                   .toString(),
                                               FFAppState().apiKey,
                                             );
+                                            logFirebaseEvent(
+                                                'stopRecording_update_app_state');
                                             setState(() {
                                               FFAppState().timerValue =
                                                   _model.speechOutput!;
@@ -260,11 +280,17 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
                                                   .speechToTextResponse = '';
                                               FFAppState().isSpeaking = true;
                                             });
+                                            logFirebaseEvent(
+                                                'stopRecording_wait__delay');
                                             await Future.delayed(const Duration(
                                                 milliseconds: 100));
+                                            logFirebaseEvent(
+                                                'stopRecording_timer');
                                             _model.timerController
                                                 .onStartTimer();
                                           } else {
+                                            logFirebaseEvent(
+                                                'stopRecording_show_snack_bar');
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(
                                               SnackBar(
@@ -301,12 +327,18 @@ class _TalkToAIWidgetState extends State<TalkToAIWidget>
                                           size: 150.0,
                                         ),
                                         onPressed: () async {
+                                          logFirebaseEvent(
+                                              'TALK_TO_A_I_PAGE_record_ON_TAP');
+                                          logFirebaseEvent(
+                                              'record_custom_action');
                                           unawaited(
                                             () async {
                                               await actions
                                                   .startTextRecording();
                                             }(),
                                           );
+                                          logFirebaseEvent(
+                                              'record_update_app_state');
                                           setState(() {
                                             FFAppState().isRecording = true;
                                           });

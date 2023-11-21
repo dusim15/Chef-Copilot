@@ -459,6 +459,10 @@ class _OptionWidgetState extends State<OptionWidget> {
                                         16.0, 12.0, 16.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'OPTION_COMP_datePurchased_ON_TAP');
+                                        logFirebaseEvent(
+                                            'datePurchased_date_time_picker');
                                         final _datePickedDate =
                                             await showDatePicker(
                                           context: context,
@@ -495,14 +499,12 @@ class _OptionWidgetState extends State<OptionWidget> {
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
-                                            .secondary,
+                                            .warning,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .success,
+                                              color: Colors.white,
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
@@ -524,6 +526,9 @@ class _OptionWidgetState extends State<OptionWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              logFirebaseEvent('OPTION_COMP_addImage_ON_TAP');
+                              logFirebaseEvent(
+                                  'addImage_upload_media_to_firebase');
                               final selectedMedia =
                                   await selectMediaWithSourceBottomSheet(
                                 context: context,
@@ -631,6 +636,9 @@ class _OptionWidgetState extends State<OptionWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent('OPTION_COMP_SAVE_BTN_ON_TAP');
+                          logFirebaseEvent('Button_backend_call');
+
                           await GroceryItemRecord.collection
                               .doc()
                               .set(createGroceryItemRecordData(
@@ -642,6 +650,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                                 photoUrl: _model.uploadedFileUrl,
                                 category: _model.textController3.text,
                               ));
+                          logFirebaseEvent('Button_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         text: FFLocalizations.of(context).getText(
@@ -658,7 +667,7 @@ class _OptionWidgetState extends State<OptionWidget> {
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: FlutterFlowTheme.of(context).success,
+                                    color: Colors.white,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(

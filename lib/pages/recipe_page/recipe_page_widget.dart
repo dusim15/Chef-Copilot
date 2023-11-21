@@ -96,6 +96,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => RecipePageModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'recipePage'});
   }
 
   @override
@@ -178,6 +180,9 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                               size: 28.0,
                             ),
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'RECIPE_arrow_back_ios_rounded_ICN_ON_TAP');
+                              logFirebaseEvent('IconButton_navigate_back');
                               context.safePop();
                             },
                           ),
